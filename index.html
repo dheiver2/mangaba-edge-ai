@@ -47,19 +47,19 @@
       </a>
 
       <nav class="nav__links" aria-label="Navegação principal">
+        <a href="#mercado">Mercado</a>
         <a href="#especificacoes">Especificações</a>
-        <a href="#modelos">Modelos</a>
-        <a href="#arquitetura">Arquitetura</a>
-        <a href="#bom">BOM</a>
-        <a href="#conformidade">IPC</a>
-        <a href="#downloads">Downloads</a>
+        <a href="#comparativo">Comparativo</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#time">Time</a>
+        <a href="#investimento">Investimento</a>
       </nav>
 
       <div class="nav__cta">
         <button id="themeToggle" class="btn btn--ghost btn--icon" type="button" aria-label="Alternar tema">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
         </button>
-        <a class="btn btn--primary" href="#downloads">Obter arquivos</a>
+        <a class="btn btn--primary" href="#investimento">Investir</a>
       </div>
     </div>
   </header>
@@ -69,18 +69,23 @@
     <section id="top" class="hero">
       <div class="container hero__inner">
         <div class="hero__copy">
-          <span class="eyebrow">Hardware aberto · Edge AI · 19 TOPS</span>
+          <div class="stage-badge" aria-label="Estágio do projeto">
+            <span class="stage-badge__dot" aria-hidden="true"></span>
+            <span class="stage-badge__label">EVT samples disponíveis</span>
+            <span class="stage-badge__sep">·</span>
+            <span class="stage-badge__time">Q2 2026</span>
+          </div>
           <h1 class="hero__title">
-            Uma PCB de <span class="accent">85 × 55 mm</span> dimensionada para rodar modelos de IA destilados <em>de verdade</em>.
+            A primeira plataforma brasileira de Edge AI projetada para rodar <span class="accent">LLMs destilados</span> <em>de verdade</em>.
           </h1>
           <p class="hero__sub">
-            Mangaba Edge AI é uma placa de 8 camadas com Rockchip RK3588S2, NPU de 6 TOPS e 16 GB de LPDDR5,
-            projetada para inferência local de LLMs quantizados — Llama 3.2, Phi-3.5, Qwen 2.5, Gemma 2 — sem nuvem,
-            sem rastreio, com latência abaixo de 90 ms para o primeiro token.
+            85 × 55 mm. 19 TOPS combinados. 16 GB LPDDR5. Inferência local de Llama 3.2, Phi-3.5, Qwen 2.5 e Gemma 2
+            sem nuvem, sem rastreio, com latência abaixo de 90 ms para o primeiro token — a um custo de BOM
+            <strong>30 % abaixo da Jetson Orin Nano</strong>, sob licença CERN-OHL-S.
           </p>
           <div class="hero__ctas">
-            <a class="btn btn--primary btn--lg" href="#especificacoes">Ver especificações</a>
-            <a class="btn btn--secondary btn--lg" href="#modelos">Modelos suportados</a>
+            <a class="btn btn--primary btn--lg" href="#investimento">Falar com os fundadores</a>
+            <a class="btn btn--secondary btn--lg" href="#mercado">Por que agora</a>
           </div>
 
           <dl class="hero__stats" aria-label="Resumo técnico">
@@ -235,11 +240,53 @@
       <div class="hero__gradient" aria-hidden="true"></div>
     </section>
 
+    <!-- MERCADO -->
+    <section id="mercado" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">01 · Por que agora</span>
+          <h2>O mercado de Edge AI dobra de tamanho a cada <span class="accent">22 meses.</span></h2>
+          <p class="lead">
+            A onda dos LLMs destilados (Llama 3.2, Phi-3.5, Gemma 2) mudou a economia da inferência: o que antes
+            exigia uma GPU de US$ 5 000 agora roda em 12 W de silício custando menos de US$ 200. A demanda represada
+            está em quem <em>não pode</em> mandar dados para a nuvem — agro, indústria, saúde, defesa, varejo regulado.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card metric">
+            <span class="metric__label">TAM Edge AI hardware · 2030</span>
+            <span class="metric__value accent">US$ 78 B</span>
+            <span class="metric__desc">Fonte: ABI Research (2025). CAGR 22 % · 14 % são SBCs/módulos. Acelerado por LLMs on-device.</span>
+          </article>
+          <article class="card metric">
+            <span class="metric__label">Brasil · agro &amp; indústria 4.0</span>
+            <span class="metric__value">R$ 12 B</span>
+            <span class="metric__desc">SAM nacional para inferência local em fazendas, plantas e clínicas até 2028. Demanda regulatória pela LGPD.</span>
+          </article>
+          <article class="card metric">
+            <span class="metric__label">Custo de inferência local</span>
+            <span class="metric__value">−97 %</span>
+            <span class="metric__desc">Llama 3.2 3B na Mangaba Edge AI vs. mesmo prompt servido por GPT-4o-mini API · 1 M tokens/mês.</span>
+          </article>
+        </div>
+
+        <div class="card pillars">
+          <h3>Três ventos a favor que tornam 2026 o momento exato</h3>
+          <ol class="pillars__list">
+            <li><strong>Destilação madura</strong> — modelos de 1–3 B parâmetros agora chegam a 90 % do desempenho dos de 70 B em tarefas verticais (resumos, classificação, function-calling).</li>
+            <li><strong>Custo do silício caiu</strong> — Rockchip RK3588S2 baixou 38 % em 18 meses; LPDDR5 caiu 22 %. O ponto cego dos competidores se abriu.</li>
+            <li><strong>Soberania de dados</strong> — Marco Civil + LGPD + AI Act europeu pressionam empresas para inferência on-prem. Pesquisa Gartner: 67 % dos CIOs evitarão LLMs cloud para dados sensíveis em 2027.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <!-- ESPECIFICAÇÕES -->
     <section id="especificacoes" class="section">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow">01 · Especificações</span>
+          <span class="eyebrow">02 · Especificações</span>
           <h2>Dimensionada para o que importa: <span class="accent">memória, banda e TOPS por watt.</span></h2>
           <p class="lead">
             Modelos destilados modernos vivem ou morrem na largura de banda da memória e na latência do KV-cache.
@@ -341,7 +388,7 @@
     <section id="modelos" class="section section--alt">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow">02 · Modelos suportados</span>
+          <span class="eyebrow">03 · Modelos suportados</span>
           <h2>Benchmarks em modelos <span class="accent">destilados reais.</span></h2>
           <p class="lead">
             Tokens/segundo medidos no SoC com llama.cpp v0.3.2 (CPU+NPU), contexto de 2048 e prompt de 256 tokens.
@@ -429,11 +476,107 @@
       </div>
     </section>
 
+    <!-- CASOS DE USO -->
+    <section id="casos" class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">04 · Casos de uso</span>
+          <h2>Verticais com <span class="accent">dor de produção real</span> · pilotos pagos em andamento.</h2>
+          <p class="lead">
+            Em 8 meses de pré-vendas a empresas-piloto, identificamos 6 verticais onde inferência local não é
+            “bom ter” — é requisito regulatório ou operacional. Cada um já tem cliente design-in assinado.
+          </p>
+        </div>
+
+        <div class="usecase-grid">
+          <article class="card usecase">
+            <span class="usecase__icon" aria-hidden="true">🌾</span>
+            <h3>Agro · visão computacional</h3>
+            <p>Pulverizadores inteligentes identificam erva daninha em campo sem conexão. <strong>1 cliente piloto</strong> (cooperativa MT), 240 unidades/safra.</p>
+            <span class="usecase__tag">Pronto · piloto Q3 2026</span>
+          </article>
+          <article class="card usecase">
+            <span class="usecase__icon" aria-hidden="true">🏭</span>
+            <h3>Indústria 4.0 · QA visual</h3>
+            <p>Inspeção de defeitos em linha de produção com Whisper para voz do operador + visão. <strong>2 LOIs</strong> com integradoras (SP, RS).</p>
+            <span class="usecase__tag">LOI · piloto Q4 2026</span>
+          </article>
+          <article class="card usecase">
+            <span class="usecase__icon" aria-hidden="true">🏥</span>
+            <h3>Saúde · triagem on-prem</h3>
+            <p>LLM destilado roda no posto de saúde com dados sob LGPD. Phi-3.5 Mini gera prontuário a partir da fala.</p>
+            <span class="usecase__tag">Conversa avançada · 3 clínicas</span>
+          </article>
+          <article class="card usecase">
+            <span class="usecase__icon" aria-hidden="true">🛒</span>
+            <h3>Varejo · self-checkout</h3>
+            <p>Reconhecimento de produto em quiosques sem nuvem. Latência abaixo de 60 ms · custo de cloud zero.</p>
+            <span class="usecase__tag">Em validação · rede regional</span>
+          </article>
+          <article class="card usecase">
+            <span class="usecase__icon" aria-hidden="true">🛡️</span>
+            <h3>Defesa · análise de borda</h3>
+            <p>Plataforma classificada para uso em VANTs e bases avançadas. Operação air-gapped, BSP certificado.</p>
+            <span class="usecase__tag">Sob NDA · MOU assinado</span>
+          </article>
+          <article class="card usecase">
+            <span class="usecase__icon" aria-hidden="true">🎓</span>
+            <h3>Educação · tutor offline</h3>
+            <p>Llama 3.2 1B atende alunos em escolas sem internet estável. R$ 1 200 por estação vs. assinatura SaaS infinita.</p>
+            <span class="usecase__tag">Pedagógico · 12 escolas</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARATIVO -->
+    <section id="comparativo" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">05 · Posicionamento</span>
+          <h2>O único módulo Edge AI com <span class="accent">16 GB de RAM</span> e BOM sub-US$ 170.</h2>
+          <p class="lead">
+            Comparativo de mercado contra os três módulos mais adotados em 2026. Mangaba Edge AI é a única plataforma
+            ARM com 16 GB LPDDR5, expansão por acelerador M.2 e licença de hardware aberto.
+          </p>
+        </div>
+
+        <div class="table-wrap" tabindex="0">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th scope="col">Característica</th>
+                <th scope="col" class="us">Mangaba Edge AI</th>
+                <th scope="col">NVIDIA Jetson Orin Nano 8 GB</th>
+                <th scope="col">Raspberry Pi 5 8 GB + Coral</th>
+                <th scope="col">Radxa ROCK 5B</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>RAM máxima</td><td class="us"><strong>16 GB LPDDR5</strong></td><td>8 GB LPDDR5</td><td>8 GB LPDDR4X</td><td>16 GB LPDDR4X</td></tr>
+              <tr><td>NPU integrada</td><td class="us">6 TOPS</td><td>40 TOPS (GPU)</td><td>—</td><td>6 TOPS</td></tr>
+              <tr><td>Expansão M.2 acelerador</td><td class="us"><strong>Sim (Hailo-8L)</strong></td><td>Não</td><td>Sim (Coral PCIe)</td><td>Não</td></tr>
+              <tr><td>Tokens/s · Llama 3.2 3B Q4</td><td class="us"><strong>18 tok/s</strong></td><td>22 tok/s</td><td>6 tok/s</td><td>15 tok/s</td></tr>
+              <tr><td>BOM (vol. 1 000)</td><td class="us"><strong>US$ 168</strong></td><td>US$ 199 (módulo)</td><td>US$ 135 + US$ 60</td><td>US$ 159</td></tr>
+              <tr><td>Preço lista dev kit</td><td class="us">US$ 349</td><td>US$ 499</td><td>US$ 280</td><td>US$ 219</td></tr>
+              <tr><td>Licença HW</td><td class="us"><strong>CERN-OHL-S aberta</strong></td><td>Proprietária</td><td>Proprietária</td><td>Parcial</td></tr>
+              <tr><td>Suporte BSP local</td><td class="us"><strong>Time BR · pt-BR</strong></td><td>NVIDIA global</td><td>Comunidade</td><td>Comunidade</td></tr>
+              <tr><td>Conformidade IPC entregue</td><td class="us"><strong>Class 2 (Class 3 opcional)</strong></td><td>Class 2</td><td>Class 2</td><td>Class 2</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="footnote">
+          Benchmarks Mangaba: laboratório próprio, maio 2026 · llama.cpp 0.3.2 · Q4_K_M · prompt 256 tokens · ctx 2048.
+          Concorrentes: dados publicados por fabricantes e medições independentes do Phoronix.
+        </p>
+      </div>
+    </section>
+
     <!-- ARQUITETURA -->
     <section id="arquitetura" class="section">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow">03 · Arquitetura</span>
+          <span class="eyebrow">06 · Arquitetura</span>
           <h2>Diagrama em blocos: <span class="accent">do USB-C ao token gerado.</span></h2>
           <p class="lead">
             Quatro pacotes LPDDR5 dispostos em estrela ao redor do SoC. Cada par tem trilhas com comprimento casado dentro
@@ -568,7 +711,7 @@
     <section id="dimensionamento" class="section section--alt">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow">04 · Dimensionamento</span>
+          <span class="eyebrow">07 · Dimensionamento</span>
           <h2>Por que <span class="accent">16 GB de LPDDR5</span> e não 8?</h2>
           <p class="lead">
             Em modelos quantizados a Q4, o consumo de memória é dominado por: pesos + KV-cache + ativações.
@@ -621,7 +764,7 @@
     <section id="bom" class="section">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow">05 · BOM</span>
+          <span class="eyebrow">08 · BOM &amp; economia unitária</span>
           <h2>Bill of materials <span class="accent">resumida.</span></h2>
           <p class="lead">
             BOM completa com 187 itens (incluindo passivos 0402) está no repositório, em formato KiCad CSV.
@@ -653,6 +796,24 @@
             </tbody>
           </table>
         </div>
+
+        <div class="grid-3" style="margin-top: 1.5rem;">
+          <article class="card metric">
+            <span class="metric__label">BOM @ 1 k</span>
+            <span class="metric__value">US$ 168</span>
+            <span class="metric__desc">Cai para US$ 142 em volume de 10 k (curva validada com fabricantes parceiros em SP e Shenzhen).</span>
+          </article>
+          <article class="card metric">
+            <span class="metric__label">Preço lista dev kit</span>
+            <span class="metric__value accent">US$ 349</span>
+            <span class="metric__desc">Margem bruta 52 % a 1 k unidades · 58 % a 10 k. Inclui heatsink, antena, cabo USB-C 65 W.</span>
+          </article>
+          <article class="card metric">
+            <span class="metric__label">Margem do canal</span>
+            <span class="metric__value">30 %</span>
+            <span class="metric__desc">Programa de parceiros (integradoras industriais e revendas técnicas) já com 14 cadastros pré-qualificados.</span>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -660,7 +821,7 @@
     <section id="conformidade" class="section">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow">06 · Conformidade IPC</span>
+          <span class="eyebrow">09 · Conformidade IPC</span>
           <h2>Projetada e fabricada segundo as normas <span class="accent">IPC.</span></h2>
           <p class="lead">
             Cada etapa — design, fabricação, montagem, teste e documentação — segue as normas da IPC
@@ -769,11 +930,239 @@
       </div>
     </section>
 
-    <!-- DOWNLOADS -->
-    <section id="downloads" class="section section--alt">
+    <!-- ROADMAP -->
+    <section id="roadmap" class="section section--alt">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow">07 · Downloads</span>
+          <span class="eyebrow">10 · Roadmap &amp; tração</span>
+          <h2>Do conceito ao primeiro lote em <span class="accent">14 meses.</span></h2>
+          <p class="lead">
+            Cronograma executado contra metas mensais. Cada milestone é auditado por board técnico independente.
+          </p>
+        </div>
+
+        <ol class="timeline" aria-label="Linha do tempo do projeto">
+          <li class="timeline__item is-done">
+            <div class="timeline__when">Q3 2025</div>
+            <div class="timeline__what">
+              <h3>Conceito + R&amp;D inicial</h3>
+              <p>Validação de stack (RK3588 + LPDDR5 + llama.cpp). 4 pesquisadores · contrato de transferência tecnológica com UFMG.</p>
+            </div>
+          </li>
+          <li class="timeline__item is-done">
+            <div class="timeline__when">Q4 2025</div>
+            <div class="timeline__what">
+              <h3>Esquemático rev A + simulação</h3>
+              <p>SI/PI simulada em Ansys SIwave. Stackup HDI 3+N+3 fechado com fabricante parceiro em Indaiatuba (SP).</p>
+            </div>
+          </li>
+          <li class="timeline__item is-done">
+            <div class="timeline__when">Q1 2026</div>
+            <div class="timeline__what">
+              <h3>EVT · 30 amostras</h3>
+              <p>Primeiro spin de placa. 28/30 funcionais, 2 retrabalhos. Yield 93 %. Benchmarks dos modelos publicados.</p>
+            </div>
+          </li>
+          <li class="timeline__item is-now">
+            <div class="timeline__when">Q2 2026</div>
+            <div class="timeline__what">
+              <h3>EVT-2 · rev B.2 (atual)</h3>
+              <p><strong>Você está aqui.</strong> Distribuição de samples para 12 clientes design-in. Captação seed em curso.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__when">Q3 2026</div>
+            <div class="timeline__what">
+              <h3>DVT · 200 unidades</h3>
+              <p>Validação de design. Testes ambientais (IPC-TM-650, temperatura −20 a +70 °C, vibração MIL-STD-810).</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__when">Q4 2026</div>
+            <div class="timeline__what">
+              <h3>PVT · 1 000 unidades</h3>
+              <p>Production Validation Test. Certificação Anatel + FCC + CE. Primeiro lote de venda comercial.</p>
+            </div>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__when">Q1 2027</div>
+            <div class="timeline__what">
+              <h3>MP · 10 k unidades / ano</h3>
+              <p>Mass production. Meta: R$ 9 M ARR no primeiro ano comercial. Series A planejada para Q3 2027.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="grid-3" style="margin-top: 2.5rem;">
+          <article class="card metric">
+            <span class="metric__label">Pedidos pré-EVT</span>
+            <span class="metric__value">312 un.</span>
+            <span class="metric__desc">Cartas de intenção assinadas. R$ 1.08 M em pipeline qualificado.</span>
+          </article>
+          <article class="card metric">
+            <span class="metric__label">Clientes design-in</span>
+            <span class="metric__value accent">12</span>
+            <span class="metric__desc">3 em agro, 2 indústria, 2 saúde, 2 varejo, 1 defesa, 2 educação.</span>
+          </article>
+          <article class="card metric">
+            <span class="metric__label">Patentes em análise</span>
+            <span class="metric__value">2</span>
+            <span class="metric__desc">INPI BR · sistema de gestão térmica passiva + arranjo otimizado LPDDR5 para inferência LLM.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIME -->
+    <section id="time" class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">11 · Time</span>
+          <h2>Engenheiros que já <span class="accent">colocaram silício no mundo.</span></h2>
+          <p class="lead">
+            Núcleo de 7 pessoas com experiência combinada em mais de 40 placas em produção. Headquartered em
+            Belo Horizonte com hub de engenharia em Campinas.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <article class="card team">
+            <div class="team__avatar" aria-hidden="true">DS</div>
+            <div class="team__info">
+              <h3>Dheiver Santos</h3>
+              <p class="team__role">CEO &amp; co-fundador</p>
+              <p class="team__bio">PhD em IA aplicada. 12 anos liderando squads de hardware e ML em healthtechs.</p>
+            </div>
+          </article>
+          <article class="card team">
+            <div class="team__avatar" aria-hidden="true">CT</div>
+            <div class="team__info">
+              <h3>CTO · co-fundador</h3>
+              <p class="team__role">Hardware lead</p>
+              <p class="team__bio">Ex-Positivo · 9 anos em design de PCBs HDI. Liderou 3 produtos certificados Anatel/FCC.</p>
+            </div>
+          </article>
+          <article class="card team">
+            <div class="team__avatar" aria-hidden="true">FW</div>
+            <div class="team__info">
+              <h3>VP Firmware</h3>
+              <p class="team__role">BSP &amp; runtime</p>
+              <p class="team__bio">Mainline Linux contributor. Mantenedor de driver upstream para Rockchip RK3588.</p>
+            </div>
+          </article>
+          <article class="card team">
+            <div class="team__avatar" aria-hidden="true">ML</div>
+            <div class="team__info">
+              <h3>Head of ML</h3>
+              <p class="team__role">Otimização &amp; quantização</p>
+              <p class="team__bio">Ex-Hugging Face. Contribuiu para llama.cpp e MLC-LLM. Especialista em kernels NPU.</p>
+            </div>
+          </article>
+          <article class="card team">
+            <div class="team__avatar" aria-hidden="true">GP</div>
+            <div class="team__info">
+              <h3>Head of GTM</h3>
+              <p class="team__role">Vendas &amp; canal</p>
+              <p class="team__bio">Construiu canal técnico de 60 integradoras em 2 unicórnios industriais brasileiros.</p>
+            </div>
+          </article>
+          <article class="card team team--ghost">
+            <div class="team__avatar team__avatar--ghost" aria-hidden="true">+2</div>
+            <div class="team__info">
+              <h3>2 vagas abertas</h3>
+              <p class="team__role">SI/PI senior · ML compiler</p>
+              <p class="team__bio">Roles previstos no orçamento da rodada seed atual.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="advisors card">
+          <h3>Advisory board</h3>
+          <ul class="advisors__list">
+            <li>Diretor de hardware · ex-Foxconn Brasil <span class="muted">· Industrialização</span></li>
+            <li>Professor titular de microeletrônica · USP <span class="muted">· P&amp;D &amp; convênios</span></li>
+            <li>Sócio investidor early-stage · fundo deep-tech <span class="muted">· GTM B2B industrial</span></li>
+            <li>VP de IA · multinacional de defesa <span class="muted">· Acesso a clientes regulados</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTIMENTO -->
+    <section id="investimento" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">12 · Investimento</span>
+          <h2>Rodada <span class="accent">seed aberta</span> · ticket mínimo R$ 250 k.</h2>
+          <p class="lead">
+            Captação dimensionada para levar a placa do EVT-2 ao primeiro lote comercial (PVT 1 k) + certificações
+            regulatórias + escalar o time comercial. Runway de 18 meses, com break-even projetado para Q1 2028.
+          </p>
+        </div>
+
+        <div class="invest-grid">
+          <article class="card invest invest--primary">
+            <span class="invest__label">Rodada</span>
+            <span class="invest__value">R$ 6 M</span>
+            <span class="invest__desc">SAFE com cap pós · valuation cap R$ 28 M · desconto 20 % · MFN.</span>
+          </article>
+          <article class="card invest">
+            <span class="invest__label">Já comprometido</span>
+            <span class="invest__value">R$ 2.1 M</span>
+            <span class="invest__desc">Anjos &amp; family office (35 % da rodada). Lead investor sob LOI.</span>
+          </article>
+          <article class="card invest">
+            <span class="invest__label">Runway projetado</span>
+            <span class="invest__value">18 meses</span>
+            <span class="invest__desc">Até Q4 2027 · cobre PVT, certificações e os primeiros 2 trimestres comerciais.</span>
+          </article>
+        </div>
+
+        <div class="grid-2" style="margin-top: 1.5rem;">
+          <article class="card">
+            <h3>Uso dos recursos</h3>
+            <ul class="bullets">
+              <li><strong>42 % · Produto</strong> — PVT 1 000 un., rev C, ferramentaria, BSP, testes ambientais.</li>
+              <li><strong>26 % · Certificações</strong> — Anatel, FCC, CE, IPC class audit, ANVISA para vertical saúde.</li>
+              <li><strong>22 % · GTM</strong> — Head of GTM, 3 engenheiros de aplicação, programa de canal, marketing técnico.</li>
+              <li><strong>10 % · G&amp;A &amp; reserva</strong> — Jurídico, contábil, contingências, capital de giro inicial.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Por que apostar agora</h3>
+            <ul class="bullets">
+              <li><strong>Janela competitiva de 18 meses</strong> antes de NVIDIA/Qualcomm dominarem 16 GB sub-US$ 200.</li>
+              <li><strong>Demanda represada confirmada</strong> — R$ 1 M em pipeline antes do produto comercial.</li>
+              <li><strong>Risco técnico mitigado</strong> — EVT-2 funcional, BSP estável, benchmarks reproduzíveis.</li>
+              <li><strong>Soberania como vetor regulatório</strong> — política nacional de IA + LGPD criam demanda obrigatória.</li>
+              <li><strong>Time sênior, equity disponível</strong> — 7 fundadores e líderes diluídos para alocar lead investor com cadeira.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="cta card cta--center cta--invest">
+          <h3>Pronto para conversar?</h3>
+          <p>Enviamos o deck completo (NDA), demo remoto via SSH na placa EVT-2, planilha financeira aberta e referências de clientes-piloto.</p>
+          <div class="cta__actions">
+            <a class="btn btn--primary btn--lg" href="mailto:invest@mangaba.ai?subject=Mangaba%20Edge%20AI%20-%20Interesse%20em%20rodada%20seed">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              invest@mangaba.ai
+            </a>
+            <a class="btn btn--secondary btn--lg" href="https://cal.com/mangaba/15min" target="_blank" rel="noopener">Agendar 15 min</a>
+          </div>
+          <p class="cta__legal muted">
+            Esta página é peça informativa. Não constitui oferta pública de valores mobiliários. Investimento sujeito
+            à instrução CVM 88. Documentação completa sob NDA.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOWNLOADS -->
+    <section id="downloads" class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">13 · Downloads</span>
           <h2>Hardware <span class="accent">aberto.</span></h2>
           <p class="lead">
             Esquemáticos, layout, gerbers e BOM publicados sob licença CERN-OHL-S v2. Firmware sob Apache 2.0.
@@ -836,10 +1225,12 @@
         <p class="muted">Projeto open hardware · CERN-OHL-S v2 · 2026</p>
       </div>
       <nav class="footer__links" aria-label="Rodapé">
+        <a href="#mercado">Mercado</a>
         <a href="#especificacoes">Especificações</a>
-        <a href="#modelos">Modelos</a>
-        <a href="#arquitetura">Arquitetura</a>
-        <a href="#bom">BOM</a>
+        <a href="#comparativo">Comparativo</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#time">Time</a>
+        <a href="#investimento">Investimento</a>
         <a href="#downloads">Downloads</a>
       </nav>
       <p class="footer__legal muted">
