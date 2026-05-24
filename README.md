@@ -98,10 +98,18 @@ O workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) já est�
 
 ---
 
-## Licenças
+## Modelo de licenciamento
 
-- **Hardware** (esquemáticos, layout, gerbers, BOM): [CERN-OHL-S v2](https://cern-ohl.web.cern.ch/)
-- **Firmware/BSP**: Apache 2.0
-- **Site/conteúdo**: CC BY-SA 4.0
+Mangaba Edge AI é uma **plataforma corporativa proprietária**. Engenharia, BSP, firmware e documentação técnica são IP da Mangaba e disponibilizados apenas a clientes e parceiros sob:
 
-Rockchip, Hailo, Meta, Microsoft, Google, Alibaba e os nomes de modelos são marcas de seus respectivos donos. Mangaba é um projeto independente, sem afiliação.
+- **OEM Agreement** — para fabricantes/integradoras que incorporam a placa em produtos finais (volume mínimo, royalties por unidade).
+- **Enterprise License** — para clientes corporativos que adquirem dev kits + suporte premium + BSP customizado.
+- **Evaluation NDA** — acesso ao data room (esquemáticos, gerbers, BOM, firmware) por 24 meses, para análise técnica pré-contrato.
+
+Este repositório contém apenas o **site institucional** (HTML/CSS/JS) sob direitos reservados. Nenhum artefato de engenharia (esquemático, layout, gerber, BOM, BSP) é publicado aqui.
+
+Para solicitar acesso ao data room: **enterprise@mangaba.ai**.
+
+Rockchip, Hailo, Meta, Microsoft, Google, Alibaba e os nomes de modelos são marcas de seus respectivos donos. Mangaba é uma empresa independente, sem afiliação.
+
+© Mangaba 2026. Todos os direitos reservados.

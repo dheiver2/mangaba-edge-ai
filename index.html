@@ -76,17 +76,17 @@
         <div class="hero__copy">
           <div class="stage-badge" aria-label="Estágio do projeto">
             <span class="stage-badge__dot" aria-hidden="true"></span>
-            <span class="stage-badge__label">EVT samples disponíveis</span>
+            <span class="stage-badge__label">EVT samples · enterprise pilot</span>
             <span class="stage-badge__sep">·</span>
             <span class="stage-badge__time">Q2 2026</span>
           </div>
           <h1 class="hero__title">
-            A primeira plataforma brasileira de Edge AI projetada para rodar <span class="accent">LLMs destilados</span> <em>de verdade</em>.
+            Plataforma corporativa de Edge AI projetada para inferência local de <span class="accent">LLMs destilados</span> <em>de verdade</em>.
           </h1>
           <p class="hero__sub">
-            85 × 55 mm. 19 TOPS combinados. 16 GB LPDDR5. Inferência local de Llama 3.2, Phi-3.5, Qwen 2.5 e Gemma 2
-            sem nuvem, sem rastreio, com latência abaixo de 90 ms para o primeiro token — a um custo de BOM
-            <strong>30 % abaixo da Jetson Orin Nano</strong>, sob licença CERN-OHL-S.
+            85 × 55 mm. 19 TOPS combinados. 16 GB LPDDR5. Inferência on-prem de Llama 3.2, Phi-3.5, Qwen 2.5 e Gemma 2
+            sem nuvem, sem rastreio, com latência abaixo de 90 ms para o primeiro token — entregue como
+            <strong>solução proprietária</strong> com SLA empresarial, BSP sob licença comercial e suporte premium pt-BR.
           </p>
           <div class="hero__ctas">
             <a class="btn btn--primary btn--lg" href="#investimento">Falar com os fundadores</a>
@@ -542,7 +542,7 @@
           <h2>O único módulo Edge AI com <span class="accent">16 GB de RAM</span> e BOM sub-US$ 170.</h2>
           <p class="lead">
             Comparativo de mercado contra os três módulos mais adotados em 2026. Mangaba Edge AI é a única plataforma
-            ARM com 16 GB LPDDR5, expansão por acelerador M.2 e licença de hardware aberto.
+            ARM com 16 GB LPDDR5, expansão por acelerador M.2 e suporte enterprise pt-BR incluso no contrato OEM.
           </p>
         </div>
 
@@ -564,7 +564,7 @@
               <tr><td>Tokens/s · Llama 3.2 3B Q4</td><td class="us"><strong>18 tok/s</strong></td><td>22 tok/s</td><td>6 tok/s</td><td>15 tok/s</td></tr>
               <tr><td>BOM (vol. 1 000)</td><td class="us"><strong>US$ 168</strong></td><td>US$ 199 (módulo)</td><td>US$ 135 + US$ 60</td><td>US$ 159</td></tr>
               <tr><td>Preço lista dev kit</td><td class="us">US$ 349</td><td>US$ 499</td><td>US$ 280</td><td>US$ 219</td></tr>
-              <tr><td>Licença HW</td><td class="us"><strong>CERN-OHL-S aberta</strong></td><td>Proprietária</td><td>Proprietária</td><td>Parcial</td></tr>
+              <tr><td>Modelo de licenciamento</td><td class="us"><strong>IP proprietário · contrato OEM</strong></td><td>Proprietária</td><td>Proprietária</td><td>Parcial</td></tr>
               <tr><td>Suporte BSP local</td><td class="us"><strong>Time BR · pt-BR</strong></td><td>NVIDIA global</td><td>Comunidade</td><td>Comunidade</td></tr>
               <tr><td>Conformidade IPC entregue</td><td class="us"><strong>Class 2 (Class 3 opcional)</strong></td><td>Class 2</td><td>Class 2</td><td>Class 2</td></tr>
             </tbody>
@@ -909,7 +909,7 @@
           <article class="card ipc">
             <span class="ipc__tag">Intercâmbio de dados</span>
             <h3>IPC-2581B (DPMX) · IPC-D-356A</h3>
-            <p>Pacote único de fabricação (gerbers + drill + netlist + stackup) em formato aberto
+            <p>Pacote único de fabricação (gerbers + drill + netlist + stackup) em formato padrão de indústria
             DPMX. Netlist IPC-D-356 para teste bare-board flying-probe.</p>
           </article>
 
@@ -1163,58 +1163,59 @@
       </div>
     </section>
 
-    <!-- DOWNLOADS -->
+    <!-- DOCUMENTAÇÃO TÉCNICA (acesso restrito) -->
     <section id="downloads" class="section">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow">13 · Downloads</span>
-          <h2>Hardware <span class="accent">aberto.</span></h2>
+          <span class="eyebrow">13 · Documentação técnica</span>
+          <h2>Pacote de engenharia <span class="accent">sob NDA.</span></h2>
           <p class="lead">
-            Esquemáticos, layout, gerbers e BOM publicados sob licença CERN-OHL-S v2. Firmware sob Apache 2.0.
-            Pull requests bem-vindos — todo o pipeline de fabricação é reproduzível com KiCad 8 + JLCPCB.
+            Esquemáticos, layout, gerbers, BOM e BSP fazem parte do nosso IP proprietário e são disponibilizados
+            apenas a clientes e parceiros sob acordo de confidencialidade (NDA). Solicite acesso para receber o
+            data room completo em até 24 h úteis.
           </p>
         </div>
 
         <div class="grid-3">
-          <a class="card link-card" href="#" data-asset="schematic">
-            <h3>Esquemático PDF</h3>
+          <article class="card link-card link-card--locked">
+            <h3>Esquemático PDF <span class="lock" aria-hidden="true">🔒</span></h3>
             <p class="muted">28 páginas · revisão B.2 · maio 2026</p>
-            <span class="link-card__arrow">↗</span>
-          </a>
-          <a class="card link-card" href="#" data-asset="kicad">
-            <h3>Projeto KiCad 8</h3>
+            <span class="link-card__arrow">NDA</span>
+          </article>
+          <article class="card link-card link-card--locked">
+            <h3>Projeto KiCad 8 <span class="lock" aria-hidden="true">🔒</span></h3>
             <p class="muted">.kicad_pro + libs + 3D models · 142 MB</p>
-            <span class="link-card__arrow">↗</span>
-          </a>
-          <a class="card link-card" href="#" data-asset="gerbers">
-            <h3>Gerbers + drill</h3>
+            <span class="link-card__arrow">NDA</span>
+          </article>
+          <article class="card link-card link-card--locked">
+            <h3>Gerbers + drill <span class="lock" aria-hidden="true">🔒</span></h3>
             <p class="muted">RS-274X · 8 layers · IPC-2581B (DPMX)</p>
-            <span class="link-card__arrow">↗</span>
-          </a>
-          <a class="card link-card" href="#" data-asset="bom-csv">
-            <h3>BOM completa CSV</h3>
+            <span class="link-card__arrow">NDA</span>
+          </article>
+          <article class="card link-card link-card--locked">
+            <h3>BOM completa CSV <span class="lock" aria-hidden="true">🔒</span></h3>
             <p class="muted">187 itens · IPC-1752B materials decl.</p>
-            <span class="link-card__arrow">↗</span>
-          </a>
-          <a class="card link-card" href="#" data-asset="firmware">
-            <h3>Firmware + BSP</h3>
-            <p class="muted">Linux 6.1 LTS · U-Boot 2024.04</p>
-            <span class="link-card__arrow">↗</span>
-          </a>
-          <a class="card link-card" href="#" data-asset="datasheet">
-            <h3>Datasheet + IPC pack</h3>
+            <span class="link-card__arrow">NDA</span>
+          </article>
+          <article class="card link-card link-card--locked">
+            <h3>Firmware + BSP <span class="lock" aria-hidden="true">🔒</span></h3>
+            <p class="muted">Linux 6.1 LTS · BSP sob licença comercial</p>
+            <span class="link-card__arrow">NDA</span>
+          </article>
+          <article class="card link-card link-card--locked">
+            <h3>Datasheet + IPC pack <span class="lock" aria-hidden="true">🔒</span></h3>
             <p class="muted">Pinout · curvas térmicas · IPC-D-356 netlist</p>
-            <span class="link-card__arrow">↗</span>
-          </a>
+            <span class="link-card__arrow">NDA</span>
+          </article>
         </div>
 
         <div class="cta card cta--center">
-          <h3>Construa o seu agente de IA <span class="accent">na borda</span>.</h3>
-          <p>Encomende o kit de avaliação ou clone o repositório para fabricar você mesmo.</p>
+          <h3>Solicite acesso ao <span class="accent">data room</span>.</h3>
+          <p>NDA digital de 2 páginas, validade 24 meses. Após assinatura você recebe link único para download do pacote completo de engenharia + agenda de demo técnica com o time de produto.</p>
           <div class="cta__actions">
-            <a class="btn btn--primary btn--lg" href="https://github.com/" target="_blank" rel="noopener">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9 0-6.3-5.2-11.5-11.5-11.5z"/></svg>
-              Ver no GitHub
+            <a class="btn btn--primary btn--lg" href="mailto:enterprise@mangaba.ai?subject=Mangaba%20Edge%20AI%20-%20Solicita%C3%A7%C3%A3o%20de%20acesso%20ao%20data%20room">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Solicitar acesso (NDA)
             </a>
             <a class="btn btn--secondary btn--lg" href="#especificacoes">Voltar ao topo</a>
           </div>
@@ -1227,7 +1228,7 @@
     <div class="container footer__inner">
       <div class="footer__brand">
         <span class="brand__name">Mangaba</span><span class="brand__product">Edge AI</span>
-        <p class="muted">Projeto open hardware · CERN-OHL-S v2 · 2026</p>
+        <p class="muted">Plataforma corporativa · IP proprietário · © Mangaba 2026</p>
       </div>
       <nav class="footer__links" aria-label="Rodapé">
         <a href="#mercado">Mercado</a>

@@ -504,6 +504,29 @@ tbody td .muted { font-size: .82rem; margin-left: .25rem; }
 .link-card:hover { border-color: var(--brand); }
 .link-card:hover .link-card__arrow { transform: translate(2px, -2px); color: var(--brand); }
 
+/* Locked (NDA-gated) cards: no hover state, locked icon */
+.link-card--locked {
+  cursor: not-allowed;
+  background: linear-gradient(180deg, var(--bg-alt) 0%, var(--card) 100%);
+}
+.link-card--locked:hover { border-color: var(--border); }
+.link-card--locked:hover .link-card__arrow { transform: none; color: var(--fg-muted); }
+.link-card--locked h3 {
+  display: flex; align-items: center; gap: .5rem;
+  color: var(--fg);
+}
+.link-card--locked .lock { font-size: .85rem; opacity: .85; }
+.link-card--locked .link-card__arrow {
+  font: 600 .7rem/1 var(--font-sans);
+  letter-spacing: .14em;
+  padding: .3rem .5rem;
+  background: color-mix(in srgb, var(--brand) 12%, var(--card));
+  color: var(--brand-deep);
+  border: 1px solid color-mix(in srgb, var(--brand) 28%, transparent);
+  border-radius: var(--radius-pill);
+  top: .9rem;
+}
+
 /* =========== Mercado / pillars =========== */
 .pillars { margin-top: 1.5rem; }
 .pillars__list {
