@@ -1,0 +1,17 @@
+# Local dev tooling (Claude Code preview launch config)
+.claude/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs / temp
+*.log
+.cache/

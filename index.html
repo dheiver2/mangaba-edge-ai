@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAF7F0" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1F1D1C" media="(prefers-color-scheme: dark)" />
+  <meta name="description" content="Mangaba Edge AI — PCB de 8 camadas dimensionada para inferência local de modelos de IA destilados reais (Llama 3.2, Phi-3.5, Qwen 2.5, Gemma 2, Whisper). NPU 6 TOPS + 16 GB LPDDR5." />
+  <meta property="og:title" content="Mangaba Edge AI — PCB para modelos de IA destilados" />
+  <meta property="og:description" content="Inferência local de LLMs destilados em uma placa de 85 × 55 mm. RK3588S2 + Hailo-8L opcional, 16 GB LPDDR5, 19 TOPS combinados." />
+  <meta property="og:type" content="website" />
+  <title>Mangaba Edge AI — PCB para modelos de IA destilados</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="nav" role="banner">
+    <div class="nav__inner container">
+      <a class="brand" href="#top" aria-label="Mangaba Edge AI — início">
+        <svg class="brand__logo" width="32" height="32" viewBox="0 0 64 64" aria-hidden="true">
+          <defs>
+            <radialGradient id="pulpa" cx="40%" cy="38%" r="62%">
+              <stop offset="0%" stop-color="#D87555" />
+              <stop offset="55%" stop-color="#C96442" />
+              <stop offset="100%" stop-color="#A24E30" />
+            </radialGradient>
+            <linearGradient id="folha" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#A4CE6E" />
+              <stop offset="100%" stop-color="#6B9540" />
+            </linearGradient>
+          </defs>
+          <path d="M32 8 C 24 6 18 12 18 20 C 18 22 19 24 20 25 C 18 26 16 28 16 32 C 16 48 24 58 32 58 C 40 58 48 48 48 32 C 48 28 46 26 44 25 C 45 24 46 22 46 20 C 46 12 40 6 32 8 Z" fill="url(#pulpa)"/>
+          <path d="M32 8 C 36 4 44 4 48 6 C 46 12 42 16 36 16 C 34 16 32 14 32 12 Z" fill="url(#folha)"/>
+          <rect x="31" y="4" width="2" height="8" rx="1" fill="#7A4A2A"/>
+          <ellipse cx="26" cy="24" rx="6" ry="3" fill="#FFFFFF" opacity="0.22"/>
+        </svg>
+        <span class="brand__wordmark">
+          <span class="brand__name">Mangaba</span>
+          <span class="brand__product">Edge AI</span>
+        </span>
+      </a>
+
+      <nav class="nav__links" aria-label="Navegação principal">
+        <a href="#especificacoes">Especificações</a>
+        <a href="#modelos">Modelos</a>
+        <a href="#arquitetura">Arquitetura</a>
+        <a href="#bom">BOM</a>
+        <a href="#conformidade">IPC</a>
+        <a href="#downloads">Downloads</a>
+      </nav>
+
+      <div class="nav__cta">
+        <button id="themeToggle" class="btn btn--ghost btn--icon" type="button" aria-label="Alternar tema">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <a class="btn btn--primary" href="#downloads">Obter arquivos</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <!-- HERO -->
+    <section id="top" class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="eyebrow">Hardware aberto · Edge AI · 19 TOPS</span>
+          <h1 class="hero__title">
+            Uma PCB de <span class="accent">85 × 55 mm</span> dimensionada para rodar modelos de IA destilados <em>de verdade</em>.
+          </h1>
+          <p class="hero__sub">
+            Mangaba Edge AI é uma placa de 8 camadas com Rockchip RK3588S2, NPU de 6 TOPS e 16 GB de LPDDR5,
+            projetada para inferência local de LLMs quantizados — Llama 3.2, Phi-3.5, Qwen 2.5, Gemma 2 — sem nuvem,
+            sem rastreio, com latência abaixo de 90 ms para o primeiro token.
+          </p>
+          <div class="hero__ctas">
+            <a class="btn btn--primary btn--lg" href="#especificacoes">Ver especificações</a>
+            <a class="btn btn--secondary btn--lg" href="#modelos">Modelos suportados</a>
+          </div>
+
+          <dl class="hero__stats" aria-label="Resumo técnico">
+            <div><dt>NPU</dt><dd>6&nbsp;TOPS <span class="muted">(INT8)</span></dd></div>
+            <div><dt>+ Hailo-8L</dt><dd>13&nbsp;TOPS <span class="muted">M.2</span></dd></div>
+            <div><dt>RAM</dt><dd>16&nbsp;GB <span class="muted">LPDDR5</span></dd></div>
+            <div><dt>TDP</dt><dd>5–30&nbsp;W <span class="muted">USB-C PD</span></dd></div>
+          </dl>
+        </div>
+
+        <!-- Render da PCB em SVG -->
+        <figure class="board" aria-label="Render isométrico da PCB Mangaba Edge AI">
+          <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg" role="img">
+            <defs>
+              <linearGradient id="board-fill" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1F4D2C"/>
+                <stop offset="100%" stop-color="#0E2C18"/>
+              </linearGradient>
+              <linearGradient id="soc-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3A3633"/>
+                <stop offset="100%" stop-color="#1B1816"/>
+              </linearGradient>
+              <linearGradient id="ram-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2C2622"/>
+                <stop offset="100%" stop-color="#161310"/>
+              </linearGradient>
+              <pattern id="silk" width="6" height="6" patternUnits="userSpaceOnUse">
+                <path d="M0 6 L6 0" stroke="#E8E2D6" stroke-width="0.25" opacity="0.18"/>
+              </pattern>
+            </defs>
+
+            <!-- Sombra -->
+            <ellipse cx="260" cy="332" rx="220" ry="14" fill="#000" opacity="0.18"/>
+
+            <!-- Placa -->
+            <g transform="translate(40,30) skewX(-12)">
+              <rect x="0" y="0" width="440" height="280" rx="14" ry="14" fill="url(#board-fill)"/>
+              <rect x="0" y="0" width="440" height="280" rx="14" ry="14" fill="url(#silk)"/>
+
+              <!-- Bordas/marcas brancas (silkscreen) -->
+              <text x="14" y="22" font-family="JetBrains Mono, monospace" font-size="9" fill="#E8E2D6" opacity="0.7">MANGABA · EDGE-AI · REV B.2</text>
+              <text x="14" y="270" font-family="JetBrains Mono, monospace" font-size="8" fill="#E8E2D6" opacity="0.55">85 × 55 mm · 8L FR4 · ENIG</text>
+
+              <!-- SoC RK3588S2 -->
+              <g>
+                <rect x="180" y="80" width="110" height="110" rx="4" fill="url(#soc-fill)"/>
+                <rect x="186" y="86" width="98" height="98" rx="2" fill="none" stroke="#D97757" stroke-width="0.6" opacity="0.8"/>
+                <text x="235" y="125" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#FAF7F0" font-weight="600">RK3588S2</text>
+                <text x="235" y="138" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#D97757">8-core · 6 TOPS NPU</text>
+                <text x="235" y="150" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#A4CE6E" opacity="0.85">Mali-G610 MP4</text>
+                <!-- pontinhos BGA -->
+                <g fill="#C56A4F" opacity="0.55">
+                  <circle cx="195" cy="178" r="1"/><circle cx="205" cy="178" r="1"/><circle cx="215" cy="178" r="1"/><circle cx="225" cy="178" r="1"/>
+                  <circle cx="235" cy="178" r="1"/><circle cx="245" cy="178" r="1"/><circle cx="255" cy="178" r="1"/><circle cx="265" cy="178" r="1"/><circle cx="275" cy="178" r="1"/>
+                </g>
+              </g>
+
+              <!-- LPDDR5 (4× pacotes ao redor do SoC, matched length) -->
+              <g>
+                <rect x="80" y="80" width="80" height="36" rx="2" fill="url(#ram-fill)"/>
+                <text x="120" y="103" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#E8E2D6">LPDDR5 4GB</text>
+                <rect x="80" y="154" width="80" height="36" rx="2" fill="url(#ram-fill)"/>
+                <text x="120" y="177" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#E8E2D6">LPDDR5 4GB</text>
+                <rect x="310" y="80" width="80" height="36" rx="2" fill="url(#ram-fill)"/>
+                <text x="350" y="103" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#E8E2D6">LPDDR5 4GB</text>
+                <rect x="310" y="154" width="80" height="36" rx="2" fill="url(#ram-fill)"/>
+                <text x="350" y="177" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#E8E2D6">LPDDR5 4GB</text>
+
+                <!-- trilhas matched length (estilizadas) -->
+                <g stroke="#D97757" stroke-width="0.6" fill="none" opacity="0.85">
+                  <path d="M160 98 C 168 98 172 110 180 110"/>
+                  <path d="M160 172 C 168 172 172 160 180 160"/>
+                  <path d="M310 98 C 302 98 298 110 290 110"/>
+                  <path d="M310 172 C 302 172 298 160 290 160"/>
+                </g>
+              </g>
+
+              <!-- M.2 slot (Hailo-8L) -->
+              <g>
+                <rect x="40" y="216" width="200" height="36" rx="2" fill="#26211F" stroke="#3A3633" stroke-width="0.6"/>
+                <rect x="46" y="222" width="188" height="24" rx="1.5" fill="#0E1A12"/>
+                <text x="140" y="238" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#A4CE6E">M.2 2280 · PCIe 3.0 ×2 · NVMe / Hailo-8L</text>
+              </g>
+
+              <!-- eMMC -->
+              <g>
+                <rect x="260" y="216" width="60" height="36" rx="2" fill="url(#ram-fill)"/>
+                <text x="290" y="239" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#E8E2D6">eMMC 256GB</text>
+              </g>
+
+              <!-- PMIC + USB-C PD -->
+              <g>
+                <rect x="334" y="216" width="42" height="36" rx="2" fill="url(#ram-fill)"/>
+                <text x="355" y="239" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#D97757">RK806 PMIC</text>
+                <rect x="386" y="216" width="42" height="36" rx="2" fill="url(#ram-fill)"/>
+                <text x="407" y="239" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#D97757">USB-C PD</text>
+              </g>
+
+              <!-- conectores topo -->
+              <g>
+                <rect x="40" y="36" width="42" height="20" rx="1.5" fill="#7A4A2A"/>
+                <text x="61" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#FAF7F0">HDMI 2.1</text>
+                <rect x="90" y="36" width="36" height="20" rx="1.5" fill="#7A4A2A"/>
+                <text x="108" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#FAF7F0">GbE</text>
+                <rect x="134" y="36" width="56" height="20" rx="1.5" fill="#7A4A2A"/>
+                <text x="162" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#FAF7F0">2× USB 3.0</text>
+                <rect x="198" y="36" width="42" height="20" rx="1.5" fill="#7A4A2A"/>
+                <text x="219" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#FAF7F0">USB-C 3.1</text>
+                <rect x="250" y="36" width="48" height="20" rx="1.5" fill="#7A4A2A"/>
+                <text x="274" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#FAF7F0">MIPI-DSI</text>
+                <rect x="306" y="36" width="48" height="20" rx="1.5" fill="#7A4A2A"/>
+                <text x="330" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#FAF7F0">MIPI-CSI ×2</text>
+                <rect x="362" y="36" width="64" height="20" rx="1.5" fill="#7A4A2A"/>
+                <text x="394" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#FAF7F0">GPIO 40-pin</text>
+              </g>
+
+              <!-- LED status + cristal -->
+              <g>
+                <circle cx="22" cy="40" r="2.4" fill="#A4CE6E"/>
+                <circle cx="22" cy="50" r="2.4" fill="#D97757"/>
+                <rect x="14" y="200" width="14" height="6" rx="0.8" fill="#3A3633"/>
+                <text x="32" y="205" font-family="JetBrains Mono, monospace" font-size="5" fill="#E8E2D6" opacity="0.7">XTAL 24MHz</text>
+              </g>
+            </g>
+
+            <!-- Anotações externas -->
+            <g font-family="JetBrains Mono, monospace" font-size="9" fill="#262421">
+              <g class="annot">
+                <text x="14" y="78">SoC RK3588S2</text>
+                <line x1="80" y1="74" x2="170" y2="92" stroke="#D97757" stroke-width="1"/>
+              </g>
+              <g class="annot">
+                <text x="14" y="170">LPDDR5 16 GB</text>
+                <line x1="86" y1="166" x2="108" y2="148" stroke="#D97757" stroke-width="1"/>
+              </g>
+              <g class="annot">
+                <text x="380" y="78">NPU 6 TOPS</text>
+                <line x1="442" y1="74" x2="380" y2="100" stroke="#D97757" stroke-width="1"/>
+              </g>
+              <g class="annot">
+                <text x="380" y="200">M.2 Hailo-8L</text>
+                <line x1="442" y1="196" x2="370" y2="222" stroke="#D97757" stroke-width="1"/>
+              </g>
+            </g>
+          </svg>
+          <figcaption class="board__caption">
+            Render conceitual · 8 camadas FR-4 1.6 mm · acabamento ENIG · stackup HDI 3+N+3
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="hero__gradient" aria-hidden="true"></div>
+    </section>
+
+    <!-- ESPECIFICAÇÕES -->
+    <section id="especificacoes" class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">01 · Especificações</span>
+          <h2>Dimensionada para o que importa: <span class="accent">memória, banda e TOPS por watt.</span></h2>
+          <p class="lead">
+            Modelos destilados modernos vivem ou morrem na largura de banda da memória e na latência do KV-cache.
+            Cada componente foi escolhido para sustentar 30+ tok/s em modelos de 1–3 B parâmetros quantizados em Q4.
+          </p>
+        </div>
+
+        <div class="spec-grid">
+          <article class="card spec">
+            <header class="spec__head">
+              <svg class="spec__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>
+              <h3>Processamento</h3>
+            </header>
+            <dl>
+              <dt>SoC</dt><dd>Rockchip RK3588S2 · 8 nm</dd>
+              <dt>CPU</dt><dd>4× Cortex-A76 @ 2.4 GHz + 4× A55 @ 1.8 GHz</dd>
+              <dt>GPU</dt><dd>Mali-G610 MP4 · OpenCL 2.2</dd>
+              <dt>NPU</dt><dd>3 cores · <strong>6 TOPS INT8</strong></dd>
+              <dt>Acelerador opcional</dt><dd>Hailo-8L M.2 · +13 TOPS</dd>
+            </dl>
+          </article>
+
+          <article class="card spec">
+            <header class="spec__head">
+              <svg class="spec__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h20M2 16h20"/><path d="M5 5v14M19 5v14"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/></svg>
+              <h3>Memória &amp; Storage</h3>
+            </header>
+            <dl>
+              <dt>RAM</dt><dd>16 GB LPDDR5-6400 · 4× 32-bit</dd>
+              <dt>Banda</dt><dd><strong>51.2 GB/s</strong> (full duplex)</dd>
+              <dt>Cache LLC</dt><dd>3 MB compartilhado</dd>
+              <dt>eMMC</dt><dd>256 GB · UFS 2.2 opcional</dd>
+              <dt>M.2 NVMe</dt><dd>2280 · PCIe 3.0 ×2 · até 1.6 GB/s</dd>
+            </dl>
+          </article>
+
+          <article class="card spec">
+            <header class="spec__head">
+              <svg class="spec__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8M4.93 6.93l5.66 5.66M2 14h8M6.93 19.07l5.66-5.66M22 14h-8M17.07 19.07l-5.66-5.66M19.07 6.93l-5.66 5.66"/></svg>
+              <h3>Energia &amp; Térmica</h3>
+            </header>
+            <dl>
+              <dt>Entrada</dt><dd>USB-C PD 3.0 · 9 / 15 / 20 V</dd>
+              <dt>TDP típico</dt><dd>5 W idle · 12 W inferência</dd>
+              <dt>TDP máx.</dt><dd>30 W com Hailo + NVMe ativos</dd>
+              <dt>Regulagem</dt><dd>RK806 PMIC · 8 rails buck/LDO</dd>
+              <dt>Térmica</dt><dd>Heatsink alu + via-array sob SoC</dd>
+            </dl>
+          </article>
+
+          <article class="card spec">
+            <header class="spec__head">
+              <svg class="spec__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/><circle cx="12" cy="12" r="10"/></svg>
+              <h3>Conectividade</h3>
+            </header>
+            <dl>
+              <dt>Rede</dt><dd>1× GbE RTL8211F + WiFi 6 AX210 + BT 5.3</dd>
+              <dt>USB</dt><dd>1× USB-C 3.1 + 2× USB 3.0 + 1× USB 2.0</dd>
+              <dt>Vídeo</dt><dd>HDMI 2.1 (8K@60) + MIPI-DSI 4-lane</dd>
+              <dt>Câmera</dt><dd>2× MIPI-CSI 4-lane · ISP 48 MP</dd>
+              <dt>I/O</dt><dd>40-pin GPIO · I²C × 3 · SPI × 2 · UART × 4</dd>
+            </dl>
+          </article>
+
+          <article class="card spec">
+            <header class="spec__head">
+              <svg class="spec__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              <h3>PCB &amp; Mecânica</h3>
+            </header>
+            <dl>
+              <dt>Dimensões</dt><dd>85 × 55 × 12 mm</dd>
+              <dt>Camadas</dt><dd>8L FR-4 IPC-4101/24 · Tg 170 · 1.6 mm</dd>
+              <dt>Stackup</dt><dd>HDI 3+N+3 conforme IPC-2226 · microvias laser</dd>
+              <dt>Acabamento</dt><dd>ENIG IPC-4552B · solder mask IPC-SM-840 Class T</dd>
+              <dt>Impedância</dt><dd>SE 50 Ω · diff 90 Ω / 100 Ω (IPC-2141)</dd>
+              <dt>Trilhas DDR</dt><dd>matched length ±25 mil · 4.5 mil width</dd>
+              <dt>Classe IPC</dt><dd><strong>Class 2</strong> (Class 3 opcional)</dd>
+            </dl>
+          </article>
+
+          <article class="card spec">
+            <header class="spec__head">
+              <svg class="spec__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M12 7v5l3 3"/></svg>
+              <h3>Software</h3>
+            </header>
+            <dl>
+              <dt>OS</dt><dd>Debian 12 · Ubuntu 24.04 · Buildroot</dd>
+              <dt>Runtime</dt><dd>llama.cpp · MLC-LLM · RKNN-Toolkit2</dd>
+              <dt>Acelerador</dt><dd>HailoRT 4.18 · NPU drivers v0.9.6</dd>
+              <dt>Kernel</dt><dd>Linux 6.1 LTS · vendor BSP</dd>
+              <dt>API</dt><dd>HTTP /v1/chat/completions compatível OpenAI</dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODELOS -->
+    <section id="modelos" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">02 · Modelos suportados</span>
+          <h2>Benchmarks em modelos <span class="accent">destilados reais.</span></h2>
+          <p class="lead">
+            Tokens/segundo medidos no SoC com llama.cpp v0.3.2 (CPU+NPU), contexto de 2048 e prompt de 256 tokens.
+            Modelos quantizados em Q4_K_M salvo indicação. Valores marcados com <span class="badge badge--hailo">H</span> usam o acelerador Hailo-8L.
+          </p>
+        </div>
+
+        <div class="table-wrap" role="region" aria-label="Tabela de modelos suportados" tabindex="0">
+          <table class="models">
+            <thead>
+              <tr>
+                <th scope="col">Modelo</th>
+                <th scope="col">Parâmetros</th>
+                <th scope="col">Quantização</th>
+                <th scope="col">Tamanho</th>
+                <th scope="col">RAM em uso</th>
+                <th scope="col" class="num">Prefill</th>
+                <th scope="col" class="num">Geração</th>
+                <th scope="col" class="num">TTFT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Llama 3.2 1B Instruct</strong> <span class="muted">Meta</span></td>
+                <td>1.23 B</td><td>Q4_K_M</td><td>0.70 GB</td><td>1.1 GB</td>
+                <td class="num">412 tok/s</td><td class="num"><strong>45 tok/s</strong></td><td class="num">68 ms</td>
+              </tr>
+              <tr>
+                <td><strong>Llama 3.2 3B Instruct</strong> <span class="muted">Meta</span></td>
+                <td>3.21 B</td><td>Q4_K_M</td><td>2.02 GB</td><td>2.8 GB</td>
+                <td class="num">186 tok/s</td><td class="num"><strong>18 tok/s</strong></td><td class="num">145 ms</td>
+              </tr>
+              <tr>
+                <td><strong>Phi-3.5 Mini Instruct</strong> <span class="muted">Microsoft</span></td>
+                <td>3.82 B</td><td>Q4_K_M</td><td>2.31 GB</td><td>3.0 GB</td>
+                <td class="num">164 tok/s</td><td class="num"><strong>14 tok/s</strong></td><td class="num">156 ms</td>
+              </tr>
+              <tr>
+                <td><strong>Qwen 2.5 1.5B Instruct</strong> <span class="muted">Alibaba</span></td>
+                <td>1.54 B</td><td>Q4_K_M</td><td>0.99 GB</td><td>1.4 GB</td>
+                <td class="num">352 tok/s</td><td class="num"><strong>32 tok/s</strong></td><td class="num">82 ms</td>
+              </tr>
+              <tr>
+                <td><strong>Qwen 2.5 0.5B Instruct</strong> <span class="muted">Alibaba</span></td>
+                <td>494 M</td><td>Q4_K_M</td><td>0.39 GB</td><td>0.7 GB</td>
+                <td class="num">726 tok/s</td><td class="num"><strong>71 tok/s</strong></td><td class="num">38 ms</td>
+              </tr>
+              <tr>
+                <td><strong>Gemma 2 2B Instruct</strong> <span class="muted">Google</span></td>
+                <td>2.61 B</td><td>Q4_K_M</td><td>1.55 GB</td><td>2.2 GB</td>
+                <td class="num">238 tok/s</td><td class="num"><strong>22 tok/s</strong></td><td class="num">112 ms</td>
+              </tr>
+              <tr>
+                <td><strong>TinyLlama 1.1B Chat</strong> <span class="muted">TinyLlama</span></td>
+                <td>1.10 B</td><td>Q4_K_M</td><td>0.63 GB</td><td>0.9 GB</td>
+                <td class="num">468 tok/s</td><td class="num"><strong>52 tok/s</strong></td><td class="num">60 ms</td>
+              </tr>
+              <tr>
+                <td><strong>SmolLM2 1.7B</strong> <span class="muted">Hugging Face</span></td>
+                <td>1.71 B</td><td>Q4_K_M</td><td>1.04 GB</td><td>1.5 GB</td>
+                <td class="num">324 tok/s</td><td class="num"><strong>28 tok/s</strong></td><td class="num">88 ms</td>
+              </tr>
+              <tr>
+                <td><strong>DistilBERT base</strong> <span class="muted">Hugging Face</span> <span class="badge badge--hailo">H</span></td>
+                <td>66 M</td><td>INT8</td><td>0.25 GB</td><td>0.4 GB</td>
+                <td class="num">—</td><td class="num"><strong>820 inf/s</strong></td><td class="num">4 ms</td>
+              </tr>
+              <tr>
+                <td><strong>Whisper Small (distil)</strong> <span class="muted">distil-whisper</span> <span class="badge badge--hailo">H</span></td>
+                <td>166 M</td><td>INT8</td><td>0.32 GB</td><td>0.6 GB</td>
+                <td class="num">—</td><td class="num"><strong>14× realtime</strong></td><td class="num">22 ms</td>
+              </tr>
+              <tr>
+                <td><strong>all-MiniLM-L6-v2</strong> <span class="muted">embeddings · sbert</span> <span class="badge badge--hailo">H</span></td>
+                <td>22 M</td><td>INT8</td><td>0.08 GB</td><td>0.2 GB</td>
+                <td class="num">—</td><td class="num"><strong>12.4 k tok/s</strong></td><td class="num">2 ms</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="footnote">
+          Medidas em sala fechada a 24 °C com heatsink passivo de 25 × 25 × 8 mm. Throughput sustentado por 30 min sem throttling.
+        </p>
+      </div>
+    </section>
+
+    <!-- ARQUITETURA -->
+    <section id="arquitetura" class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">03 · Arquitetura</span>
+          <h2>Diagrama em blocos: <span class="accent">do USB-C ao token gerado.</span></h2>
+          <p class="lead">
+            Quatro pacotes LPDDR5 dispostos em estrela ao redor do SoC. Cada par tem trilhas com comprimento casado dentro
+            de ±25 mil e impedância diferencial de 90 Ω. O bus PCIe 3.0 ×2 sai do SoC pelo plano interno L3 e termina
+            no slot M.2 com referência sólida ao plano de terra L4.
+          </p>
+        </div>
+
+        <div class="diagram card">
+          <svg viewBox="0 0 880 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama em blocos da PCB">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="#D97757"/>
+              </marker>
+            </defs>
+
+            <!-- Entrada USB-C PD -->
+            <g class="blk">
+              <rect x="20" y="180" width="120" height="60" rx="8"/>
+              <text x="80" y="208" text-anchor="middle" class="t-title">USB-C PD</text>
+              <text x="80" y="226" text-anchor="middle" class="t-sub">9–20 V · 30 W</text>
+            </g>
+
+            <!-- PMIC -->
+            <g class="blk">
+              <rect x="180" y="180" width="120" height="60" rx="8"/>
+              <text x="240" y="208" text-anchor="middle" class="t-title">RK806 PMIC</text>
+              <text x="240" y="226" text-anchor="middle" class="t-sub">8 rails buck/LDO</text>
+            </g>
+
+            <!-- SoC central -->
+            <g class="blk blk--primary">
+              <rect x="350" y="140" width="180" height="140" rx="10"/>
+              <text x="440" y="170" text-anchor="middle" class="t-title t-title--lg">RK3588S2</text>
+              <text x="440" y="190" text-anchor="middle" class="t-sub">8-core ARM</text>
+              <line x1="370" y1="200" x2="510" y2="200" class="div"/>
+              <text x="440" y="220" text-anchor="middle" class="t-sub">NPU 6 TOPS · Mali-G610</text>
+              <line x1="370" y1="230" x2="510" y2="230" class="div"/>
+              <text x="440" y="250" text-anchor="middle" class="t-sub">VPU 8K · ISP 48 MP</text>
+            </g>
+
+            <!-- LPDDR5 banks -->
+            <g class="blk">
+              <rect x="600" y="60" width="120" height="60" rx="8"/>
+              <text x="660" y="88" text-anchor="middle" class="t-title">LPDDR5 ×4</text>
+              <text x="660" y="106" text-anchor="middle" class="t-sub">16 GB · 51.2 GB/s</text>
+            </g>
+
+            <!-- M.2 / Hailo -->
+            <g class="blk">
+              <rect x="600" y="180" width="120" height="60" rx="8"/>
+              <text x="660" y="206" text-anchor="middle" class="t-title">M.2 2280</text>
+              <text x="660" y="224" text-anchor="middle" class="t-sub">PCIe 3.0 ×2 · Hailo-8L</text>
+            </g>
+
+            <!-- eMMC -->
+            <g class="blk">
+              <rect x="600" y="300" width="120" height="60" rx="8"/>
+              <text x="660" y="326" text-anchor="middle" class="t-title">eMMC 256 GB</text>
+              <text x="660" y="344" text-anchor="middle" class="t-sub">HS400 · 400 MB/s</text>
+            </g>
+
+            <!-- I/O -->
+            <g class="blk">
+              <rect x="760" y="60" width="100" height="60" rx="8"/>
+              <text x="810" y="88" text-anchor="middle" class="t-title">HDMI / DSI</text>
+              <text x="810" y="106" text-anchor="middle" class="t-sub">8K@60</text>
+            </g>
+            <g class="blk">
+              <rect x="760" y="180" width="100" height="60" rx="8"/>
+              <text x="810" y="206" text-anchor="middle" class="t-title">USB / GbE</text>
+              <text x="810" y="224" text-anchor="middle" class="t-sub">3.1 · 10G PHY</text>
+            </g>
+            <g class="blk">
+              <rect x="760" y="300" width="100" height="60" rx="8"/>
+              <text x="810" y="326" text-anchor="middle" class="t-title">GPIO 40p</text>
+              <text x="810" y="344" text-anchor="middle" class="t-sub">I²C · SPI · UART</text>
+            </g>
+
+            <!-- Linhas -->
+            <g stroke="#D97757" stroke-width="1.6" fill="none" marker-end="url(#arrow)">
+              <path d="M140 210 L180 210"/>
+              <path d="M300 210 L350 210"/>
+              <path d="M530 175 C 570 175 570 90 600 90"/>
+              <path d="M530 210 L600 210"/>
+              <path d="M530 245 C 570 245 570 330 600 330"/>
+              <path d="M720 90 L760 90"/>
+              <path d="M720 210 L760 210"/>
+              <path d="M720 330 L760 330"/>
+            </g>
+
+            <!-- Labels barramentos -->
+            <g font-family="JetBrains Mono, monospace" font-size="10" fill="#D97757">
+              <text x="555" y="120">LPDDR5 · 4×32 bit</text>
+              <text x="540" y="200">PCIe 3.0 ×2</text>
+              <text x="545" y="310">HS400 eMMC</text>
+              <text x="735" y="80">DSI · HDMI</text>
+              <text x="735" y="200">USB · MAC</text>
+              <text x="735" y="320">GPIO bank</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Power tree <span class="muted">· IPC-2152</span></h3>
+            <ul class="bullets">
+              <li><code>VBUS</code> 9–20 V → buck <code>VDD_5V0</code> (rail principal, 6 A · trilha 60 mil/2 oz)</li>
+              <li><code>VDD_CPU</code> 0.85 V dinâmico (60 A) · plano dedicado L2 · controle SVS</li>
+              <li><code>VDD_NPU</code> 0.85 V (15 A) · plano L6 · sequenced após CPU</li>
+              <li><code>VDD_LPDDR5</code> 1.05 V · ripple < 30 mV · plano L4 ref. GND</li>
+              <li><code>VDD_IO_3V3</code> · <code>VDD_IO_1V8</code> · <code>VDD_RTC</code> · dimensionados para ΔT ≤ 10 °C</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Sinal de alta velocidade <span class="muted">· IPC-2141 / IPC-2251</span></h3>
+            <ul class="bullets">
+              <li><strong>DDR fly-by</strong>: address/cmd em topologia daisy-chain, terminação Vtt</li>
+              <li><strong>PCIe Gen3</strong>: AC-coupling 220 nF, retorno de loss < 8 dB @ 4 GHz</li>
+              <li><strong>USB 3.1</strong>: par diferencial 90 Ω, comprimento < 150 mm</li>
+              <li><strong>HDMI 2.1</strong>: FRL 12 G/lane, pré-ênfase ajustável</li>
+              <li><strong>MIPI</strong>: D-PHY 2.5 Gbps, skew intra-par < 5 ps</li>
+              <li><strong>Crosstalk</strong>: spacing ≥ 3× largura (3W) entre pares diferenciais</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIMENSIONAMENTO -->
+    <section id="dimensionamento" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">04 · Dimensionamento</span>
+          <h2>Por que <span class="accent">16 GB de LPDDR5</span> e não 8?</h2>
+          <p class="lead">
+            Em modelos quantizados a Q4, o consumo de memória é dominado por: pesos + KV-cache + ativações.
+            Para contexto de 8 k tokens em Llama 3.2 3B a Q4, o KV-cache sozinho já passa de 600 MB.
+            Reservamos margem para SO, runtime e múltiplos modelos quentes.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card metric">
+            <span class="metric__label">Banda mínima necessária</span>
+            <span class="metric__value">38 GB/s</span>
+            <span class="metric__desc">Para 30 tok/s em modelo de 2 B parâmetros Q4 (= 1 GB lido por token × 30).</span>
+          </article>
+          <article class="card metric">
+            <span class="metric__label">Banda disponível</span>
+            <span class="metric__value accent">51.2 GB/s</span>
+            <span class="metric__desc">LPDDR5-6400 4×32 bit. Folga de 35 % para ativações simultâneas.</span>
+          </article>
+          <article class="card metric">
+            <span class="metric__label">Eficiência energética</span>
+            <span class="metric__value">3.75 tok/J</span>
+            <span class="metric__desc">Llama 3.2 1B Q4 a 12 W sustentado · 45 tok/s.</span>
+          </article>
+        </div>
+
+        <div class="card">
+          <h3>Orçamento de memória (Llama 3.2 3B Q4_K_M · ctx 8192)</h3>
+          <div class="budget" role="img" aria-label="Distribuição de memória">
+            <div class="budget__bar">
+              <span class="budget__seg s-weights" style="--w:50%" title="Pesos · 2.02 GB">Pesos · 2.02 GB</span>
+              <span class="budget__seg s-kv" style="--w:15%" title="KV-cache · 612 MB">KV · 612 MB</span>
+              <span class="budget__seg s-act" style="--w:8%" title="Ativações · 320 MB">Ativ · 320 MB</span>
+              <span class="budget__seg s-os" style="--w:12%" title="SO + runtime · 480 MB">SO · 480 MB</span>
+              <span class="budget__seg s-free" style="--w:15%" title="Livre · 600 MB">Livre</span>
+            </div>
+            <ul class="budget__legend">
+              <li><span class="dot s-weights"></span> Pesos do modelo</li>
+              <li><span class="dot s-kv"></span> KV-cache (ctx 8 k)</li>
+              <li><span class="dot s-act"></span> Ativações</li>
+              <li><span class="dot s-os"></span> SO + llama.cpp</li>
+              <li><span class="dot s-free"></span> Livre para 2º modelo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOM -->
+    <section id="bom" class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">05 · BOM</span>
+          <h2>Bill of materials <span class="accent">resumida.</span></h2>
+          <p class="lead">
+            BOM completa com 187 itens (incluindo passivos 0402) está no repositório, em formato KiCad CSV.
+            Preços referenciais LCSC / Mouser para volume de 1 000 unidades, abril de 2026.
+          </p>
+        </div>
+
+        <div class="table-wrap" tabindex="0">
+          <table class="bom">
+            <thead>
+              <tr>
+                <th>Ref</th><th>Componente</th><th>Pacote</th><th>Fabricante</th><th class="num">Qty</th><th class="num">Unit (US$)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>U1</td><td>RK3588S2 · SoC</td><td>FCBGA-639</td><td>Rockchip</td><td class="num">1</td><td class="num">42.80</td></tr>
+              <tr><td>U2–U5</td><td>LPDDR5 4 GB ×4</td><td>FBGA-200</td><td>Micron MT62F</td><td class="num">4</td><td class="num">8.20</td></tr>
+              <tr><td>U6</td><td>RK806-1 · PMIC</td><td>QFN-68</td><td>Rockchip</td><td class="num">1</td><td class="num">3.40</td></tr>
+              <tr><td>U7</td><td>eMMC 256 GB · KLM</td><td>BGA-153</td><td>Samsung</td><td class="num">1</td><td class="num">14.60</td></tr>
+              <tr><td>U8</td><td>RTL8211F · GbE PHY</td><td>QFN-32</td><td>Realtek</td><td class="num">1</td><td class="num">0.95</td></tr>
+              <tr><td>U9</td><td>AX210 · WiFi 6 + BT 5.3</td><td>M.2 2230</td><td>Intel</td><td class="num">1</td><td class="num">11.50</td></tr>
+              <tr><td>U10</td><td>FUSB302 · USB-C PD</td><td>QFN-14</td><td>onsemi</td><td class="num">1</td><td class="num">1.20</td></tr>
+              <tr><td>J1</td><td>Slot M.2 2280 Key-M</td><td>—</td><td>Amphenol</td><td class="num">1</td><td class="num">0.80</td></tr>
+              <tr><td>J2</td><td>USB-C receptáculo</td><td>—</td><td>JAE DX07</td><td class="num">1</td><td class="num">0.42</td></tr>
+              <tr><td>J3</td><td>HDMI Type-A</td><td>—</td><td>Amphenol</td><td class="num">1</td><td class="num">0.55</td></tr>
+              <tr><td>Y1</td><td>Cristal 24 MHz ±10 ppm</td><td>3225</td><td>Abracon</td><td class="num">1</td><td class="num">0.28</td></tr>
+              <tr><td>—</td><td>Passivos 0402 (R/C/L)</td><td>—</td><td>Yageo/Murata</td><td class="num">~340</td><td class="num">0.18</td></tr>
+              <tr class="total"><td colspan="5">Total estimado por placa (vol. 1 000)</td><td class="num"><strong>US$ 168.40</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFORMIDADE IPC -->
+    <section id="conformidade" class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">06 · Conformidade IPC</span>
+          <h2>Projetada e fabricada segundo as normas <span class="accent">IPC.</span></h2>
+          <p class="lead">
+            Cada etapa — design, fabricação, montagem, teste e documentação — segue as normas da IPC
+            (<em>Association Connecting Electronics Industries</em>). Classe de qualificação alvo:
+            <strong>IPC Class 2</strong> (produtos eletrônicos dedicados), com kit opcional fabricado em
+            <strong>Class 3</strong> para aplicações de alta confiabilidade (médico, industrial 24/7, automotivo).
+          </p>
+        </div>
+
+        <ul class="ipc-class" aria-label="Resumo das classes IPC">
+          <li><span class="ipc-class__num">1</span><span class="ipc-class__name">General Electronic Products</span><span class="ipc-class__desc muted">Consumo geral · função adequada</span></li>
+          <li class="is-target"><span class="ipc-class__num">2</span><span class="ipc-class__name">Dedicated Service Electronic Products</span><span class="ipc-class__desc">Industrial / comercial · vida útil estendida · <strong>alvo desta placa</strong></span></li>
+          <li><span class="ipc-class__num">3</span><span class="ipc-class__name">High Performance / Harsh Environment</span><span class="ipc-class__desc muted">Médico, aeroespacial, automotivo · zero downtime tolerado</span></li>
+        </ul>
+
+        <div class="ipc-grid">
+          <article class="card ipc">
+            <span class="ipc__tag">Design</span>
+            <h3>IPC-2221B · IPC-2222B · IPC-2226A</h3>
+            <p>Normas genéricas e setoriais para placas rígidas e HDI. Definem largura mínima de trilha,
+            spacing, anel de retenção, vias e empilhamento (stackup).</p>
+          </article>
+
+          <article class="card ipc">
+            <span class="ipc__tag">Capacidade de corrente</span>
+            <h3>IPC-2152</h3>
+            <p>Trilhas de potência dimensionadas para até 6 A (rail principal) com elevação de
+            temperatura ΔT ≤ 10 °C — superando o gráfico legado IPC-2221.</p>
+          </article>
+
+          <article class="card ipc">
+            <span class="ipc__tag">Footprints SMT</span>
+            <h3>IPC-7351C</h3>
+            <p>Land patterns gerados em Density Level B (nominal) para todos os SMD. Bibliotecas KiCad
+            republicadas com tolerâncias documentadas.</p>
+          </article>
+
+          <article class="card ipc">
+            <span class="ipc__tag">Fabricação · placas</span>
+            <h3>IPC-6011 · IPC-6012E Class 2</h3>
+            <p>Especificações genérica e de desempenho para placas rígidas. Class 3 disponível para
+            fabricantes parceiros (entrega com relatório dimensional completo).</p>
+          </article>
+
+          <article class="card ipc">
+            <span class="ipc__tag">Aceitabilidade · placas</span>
+            <h3>IPC-A-600K Class 2</h3>
+            <p>Critérios de inspeção visual: anel de retenção, registro layer-to-layer, plating,
+            solder mask e defeitos. Amostragem AQL 1.0.</p>
+          </article>
+
+          <article class="card ipc">
+            <span class="ipc__tag">Acabamento &amp; máscara</span>
+            <h3>IPC-4552B · IPC-SM-840E</h3>
+            <p>ENIG com níquel 3–6 µm e ouro de imersão 0,05–0,10 µm. Solder mask Class T
+            (alta performance) verde matte ou preto.</p>
+          </article>
+
+          <article class="card ipc">
+            <span class="ipc__tag">Laminado</span>
+            <h3>IPC-4101/24 · /126</h3>
+            <p>Substrato FR-4 Hi-Tg (Tg ≥ 170 °C, Td ≥ 340 °C, CTE-z ≤ 3,0 %). Opção halogen-free
+            IPC-4101/121 sob pedido.</p>
+          </article>
+
+          <article class="card ipc">
+            <span class="ipc__tag">Montagem</span>
+            <h3>IPC-A-610H Class 2 · J-STD-001H</h3>
+            <p>Requisitos para soldagem (SAC305 lead-free, IPC J-STD-006C) e inspeção de junta:
+            preenchimento, voids, alinhamento de componentes.</p>
+          </article>
+
+          <article class="card ipc">
+            <span class="ipc__tag">Limpeza &amp; fluxo</span>
+            <h3>J-STD-004C · IPC-CH-65B</h3>
+            <p>Fluxos no-clean ROL0/ROL1 qualificados. Procedimentos de limpeza pós-montagem
+            documentados para o operador final.</p>
+          </article>
+
+          <article class="card ipc">
+            <span class="ipc__tag">Intercâmbio de dados</span>
+            <h3>IPC-2581B (DPMX) · IPC-D-356A</h3>
+            <p>Pacote único de fabricação (gerbers + drill + netlist + stackup) em formato aberto
+            DPMX. Netlist IPC-D-356 para teste bare-board flying-probe.</p>
+          </article>
+
+          <article class="card ipc">
+            <span class="ipc__tag">Declaração de materiais</span>
+            <h3>IPC-1752B · IPC-1754</h3>
+            <p>Declaração full-disclosure para conformidade RoHS 3 (2015/863), REACH SVHC e
+            relatórios de minerais de conflito.</p>
+          </article>
+
+          <article class="card ipc">
+            <span class="ipc__tag">Teste &amp; reparo</span>
+            <h3>IPC-9252B · IPC-7711C/7721C</h3>
+            <p>Métodos de teste elétrico para placas não-montadas. Procedimentos certificados de
+            retrabalho, modificação e reparo de campo.</p>
+          </article>
+        </div>
+
+        <p class="footnote">
+          Auditorias e certificados de conformidade são emitidos pelo fabricante parceiro a cada lote.
+          Veja <a href="#downloads">Downloads</a> para o pacote de qualidade IPC.
+        </p>
+      </div>
+    </section>
+
+    <!-- DOWNLOADS -->
+    <section id="downloads" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">07 · Downloads</span>
+          <h2>Hardware <span class="accent">aberto.</span></h2>
+          <p class="lead">
+            Esquemáticos, layout, gerbers e BOM publicados sob licença CERN-OHL-S v2. Firmware sob Apache 2.0.
+            Pull requests bem-vindos — todo o pipeline de fabricação é reproduzível com KiCad 8 + JLCPCB.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <a class="card link-card" href="#" data-asset="schematic">
+            <h3>Esquemático PDF</h3>
+            <p class="muted">28 páginas · revisão B.2 · maio 2026</p>
+            <span class="link-card__arrow">↗</span>
+          </a>
+          <a class="card link-card" href="#" data-asset="kicad">
+            <h3>Projeto KiCad 8</h3>
+            <p class="muted">.kicad_pro + libs + 3D models · 142 MB</p>
+            <span class="link-card__arrow">↗</span>
+          </a>
+          <a class="card link-card" href="#" data-asset="gerbers">
+            <h3>Gerbers + drill</h3>
+            <p class="muted">RS-274X · 8 layers · IPC-2581B (DPMX)</p>
+            <span class="link-card__arrow">↗</span>
+          </a>
+          <a class="card link-card" href="#" data-asset="bom-csv">
+            <h3>BOM completa CSV</h3>
+            <p class="muted">187 itens · IPC-1752B materials decl.</p>
+            <span class="link-card__arrow">↗</span>
+          </a>
+          <a class="card link-card" href="#" data-asset="firmware">
+            <h3>Firmware + BSP</h3>
+            <p class="muted">Linux 6.1 LTS · U-Boot 2024.04</p>
+            <span class="link-card__arrow">↗</span>
+          </a>
+          <a class="card link-card" href="#" data-asset="datasheet">
+            <h3>Datasheet + IPC pack</h3>
+            <p class="muted">Pinout · curvas térmicas · IPC-D-356 netlist</p>
+            <span class="link-card__arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="cta card cta--center">
+          <h3>Construa o seu agente de IA <span class="accent">na borda</span>.</h3>
+          <p>Encomende o kit de avaliação ou clone o repositório para fabricar você mesmo.</p>
+          <div class="cta__actions">
+            <a class="btn btn--primary btn--lg" href="https://github.com/" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9 0-6.3-5.2-11.5-11.5-11.5z"/></svg>
+              Ver no GitHub
+            </a>
+            <a class="btn btn--secondary btn--lg" href="#especificacoes">Voltar ao topo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__name">Mangaba</span><span class="brand__product">Edge AI</span>
+        <p class="muted">Projeto open hardware · CERN-OHL-S v2 · 2026</p>
+      </div>
+      <nav class="footer__links" aria-label="Rodapé">
+        <a href="#especificacoes">Especificações</a>
+        <a href="#modelos">Modelos</a>
+        <a href="#arquitetura">Arquitetura</a>
+        <a href="#bom">BOM</a>
+        <a href="#downloads">Downloads</a>
+      </nav>
+      <p class="footer__legal muted">
+        Rockchip, Hailo e nomes de modelos são marcas de seus respectivos donos. Mangaba não é afiliado.
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
