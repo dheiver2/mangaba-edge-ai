@@ -1,17 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <radialGradient id="p" cx="40%" cy="38%" r="62%">
-      <stop offset="0%" stop-color="#D87555"/>
-      <stop offset="55%" stop-color="#C96442"/>
-      <stop offset="100%" stop-color="#A24E30"/>
-    </radialGradient>
-    <linearGradient id="l" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#A4CE6E"/>
-      <stop offset="100%" stop-color="#6B9540"/>
-    </linearGradient>
-  </defs>
-  <path d="M32 8C24 6 18 12 18 20c0 2 1 4 2 5-2 1-4 3-4 7 0 16 8 26 16 26s16-10 16-26c0-4-2-6-4-7 1-1 2-3 2-5 0-8-6-14-14-12z" fill="url(#p)"/>
-  <path d="M32 8c4-4 12-4 16-2-2 6-6 10-12 10-2 0-4-2-4-4z" fill="url(#l)"/>
-  <rect x="31" y="4" width="2" height="8" rx="1" fill="#7A4A2A"/>
-  <ellipse cx="26" cy="24" rx="6" ry="3" fill="#FFFFFF" opacity="0.22"/>
+  <!-- Folha -->
+  <path d="M 32 16 C 24 8, 14 11, 15 18 C 16 23, 26 23, 33 18 Z" fill="#7DA84A"/>
+  <!-- Nervura central da folha -->
+  <path d="M 17 16 Q 24 16, 31 18" stroke="#5A8235" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  <!-- Pedúnculo / cabinho -->
+  <rect x="30.5" y="12" width="2.5" height="6" rx="1" fill="#5C3A24"/>
+  <!-- Fruto -->
+  <circle cx="32" cy="40" r="22" fill="#DD7B4E"/>
+  <!-- Sombra interna inferior -->
+  <ellipse cx="32" cy="48" rx="18" ry="10" fill="#B85838" opacity="0.22"/>
+  <!-- Brilho/highlight superior esquerdo -->
+  <ellipse cx="24" cy="30" rx="6" ry="4" fill="#FFFFFF" opacity="0.24" transform="rotate(-22 24 30)"/>
 </svg>

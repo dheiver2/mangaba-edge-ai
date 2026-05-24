@@ -24,21 +24,18 @@
     <div class="nav__inner container">
       <a class="brand" href="#top" aria-label="Mangaba Edge AI — início">
         <svg class="brand__logo" width="32" height="32" viewBox="0 0 64 64" aria-hidden="true">
-          <defs>
-            <radialGradient id="pulpa" cx="40%" cy="38%" r="62%">
-              <stop offset="0%" stop-color="#D87555" />
-              <stop offset="55%" stop-color="#C96442" />
-              <stop offset="100%" stop-color="#A24E30" />
-            </radialGradient>
-            <linearGradient id="folha" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#A4CE6E" />
-              <stop offset="100%" stop-color="#6B9540" />
-            </linearGradient>
-          </defs>
-          <path d="M32 8 C 24 6 18 12 18 20 C 18 22 19 24 20 25 C 18 26 16 28 16 32 C 16 48 24 58 32 58 C 40 58 48 48 48 32 C 48 28 46 26 44 25 C 45 24 46 22 46 20 C 46 12 40 6 32 8 Z" fill="url(#pulpa)"/>
-          <path d="M32 8 C 36 4 44 4 48 6 C 46 12 42 16 36 16 C 34 16 32 14 32 12 Z" fill="url(#folha)"/>
-          <rect x="31" y="4" width="2" height="8" rx="1" fill="#7A4A2A"/>
-          <ellipse cx="26" cy="24" rx="6" ry="3" fill="#FFFFFF" opacity="0.22"/>
+          <!-- Folha -->
+          <path d="M 32 16 C 24 8, 14 11, 15 18 C 16 23, 26 23, 33 18 Z" fill="#7DA84A"/>
+          <!-- Nervura central da folha -->
+          <path d="M 17 16 Q 24 16, 31 18" stroke="#5A8235" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+          <!-- Pedúnculo -->
+          <rect x="30.5" y="12" width="2.5" height="6" rx="1" fill="#5C3A24"/>
+          <!-- Fruto -->
+          <circle cx="32" cy="40" r="22" fill="#DD7B4E"/>
+          <!-- Sombra interna inferior -->
+          <ellipse cx="32" cy="48" rx="18" ry="10" fill="#B85838" opacity="0.22"/>
+          <!-- Brilho superior esquerdo -->
+          <ellipse cx="24" cy="30" rx="6" ry="4" fill="#FFFFFF" opacity="0.24" transform="rotate(-22 24 30)"/>
         </svg>
         <span class="brand__wordmark">
           <span class="brand__name">Mangaba</span>
