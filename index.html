@@ -84,9 +84,10 @@
             Plataforma corporativa de Edge AI projetada para inferência local de <span class="accent">LLMs destilados</span> <em>de verdade</em>.
           </h1>
           <p class="hero__sub">
-            85 × 55 mm. 19 TOPS combinados. 16 GB LPDDR5. Inferência on-prem de Llama 3.2, Phi-3.5, Qwen 2.5 e Gemma 2
-            sem nuvem, sem rastreio, com latência abaixo de 90 ms para o primeiro token — entregue como
-            <strong>solução proprietária</strong> com SLA empresarial, BSP sob licença comercial e suporte premium pt-BR.
+            85 × 55 mm. 19 TOPS combinados (RK3588 + Hailo-8L). <strong>16 GB LPDDR5</strong> — o dobro do
+            Jetson Orin Nano. Inferência on-prem de Llama 3.2, Phi-3.5, Qwen 2.5 e Gemma 2 sem nuvem,
+            sem rastreio — entregue como <strong>solução proprietária</strong> com SLA empresarial,
+            BSP sob licença comercial e suporte premium pt-BR.
           </p>
           <div class="hero__ctas">
             <a class="btn btn--primary btn--lg" href="#investimento">Falar com os fundadores</a>
@@ -261,27 +262,27 @@
         <div class="grid-3">
           <article class="card metric">
             <span class="metric__label">TAM Edge AI hardware · 2030</span>
-            <span class="metric__value accent">US$ 78 B</span>
-            <span class="metric__desc">Fonte: ABI Research (2025). CAGR 22 % · 14 % são SBCs/módulos. Acelerado por LLMs on-device.</span>
+            <span class="metric__value accent">US$ 58,9 B</span>
+            <span class="metric__desc">MarketsAndMarkets (2025) · partindo de US$ 26 B em 2025 · <strong>CAGR 17,6 %</strong>.</span>
           </article>
           <article class="card metric">
-            <span class="metric__label">Brasil · agro &amp; indústria 4.0</span>
-            <span class="metric__value">R$ 12 B</span>
-            <span class="metric__desc">SAM nacional para inferência local em fazendas, plantas e clínicas até 2028. Demanda regulatória pela LGPD.</span>
+            <span class="metric__label">Edge AI software (camada complementar)</span>
+            <span class="metric__value">US$ 110 B</span>
+            <span class="metric__desc">ABI Research (2025) · estimativa para 2030. Cresce em torno do hardware que estamos construindo.</span>
           </article>
           <article class="card metric">
-            <span class="metric__label">Custo de inferência local</span>
-            <span class="metric__value">−97 %</span>
-            <span class="metric__desc">Llama 3.2 3B na Mangaba Edge AI vs. mesmo prompt servido por GPT-4o-mini API · 1 M tokens/mês.</span>
+            <span class="metric__label">Custo de inferência local (cálculo)</span>
+            <span class="metric__value">~−95 %</span>
+            <span class="metric__desc">1 M tokens/mês de Llama 3.2 3B na placa (energia + amortização HW 36 m) vs. GPT-4o-mini API. Memorial de cálculo sob NDA.</span>
           </article>
         </div>
 
         <div class="card pillars">
           <h3>Três ventos a favor que tornam 2026 o momento exato</h3>
           <ol class="pillars__list">
-            <li><strong>Destilação madura</strong> — modelos de 1–3 B parâmetros agora chegam a 90 % do desempenho dos de 70 B em tarefas verticais (resumos, classificação, function-calling).</li>
-            <li><strong>Custo do silício caiu</strong> — Rockchip RK3588S2 baixou 38 % em 18 meses; LPDDR5 caiu 22 %. O ponto cego dos competidores se abriu.</li>
-            <li><strong>Soberania de dados</strong> — Marco Civil + LGPD + AI Act europeu pressionam empresas para inferência on-prem. Pesquisa Gartner: 67 % dos CIOs evitarão LLMs cloud para dados sensíveis em 2027.</li>
+            <li><strong>Destilação madura</strong> — modelos de 1–3 B parâmetros já cobrem a maior parte das tarefas verticais (resumos, classificação, function-calling, RAG) com custo de inferência ordens de grandeza menor que LLMs de fronteira.</li>
+            <li><strong>Custo do silício caiu</strong> — preços de SoCs ARM classe server caíram fortemente nos últimos 24 meses; LPDDR5 amadureceu. A janela competitiva entre os módulos consumer e os módulos server se abriu.</li>
+            <li><strong>Soberania de dados</strong> — LGPD no Brasil e AI Act europeu pressionam empresas para inferência on-prem. Pesquisas recentes (Gartner, IDC) apontam crescimento sustentado de demanda por arquiteturas que mantêm dados sensíveis na borda.</li>
           </ol>
         </div>
       </div>
@@ -320,8 +321,8 @@
               <h3>Memória &amp; Storage</h3>
             </header>
             <dl>
-              <dt>RAM</dt><dd>16 GB LPDDR5-6400 · 4× 32-bit</dd>
-              <dt>Banda</dt><dd><strong>51.2 GB/s</strong> (full duplex)</dd>
+              <dt>RAM</dt><dd>16 GB LPDDR5-5500 · quad-channel 4×16-bit</dd>
+              <dt>Banda</dt><dd><strong>~44 GB/s</strong> (configuração máx. do RK3588)</dd>
               <dt>Cache LLC</dt><dd>3 MB compartilhado</dd>
               <dt>eMMC</dt><dd>256 GB · UFS 2.2 opcional</dd>
               <dt>M.2 NVMe</dt><dd>2280 · PCIe 3.0 ×2 · até 1.6 GB/s</dd>
@@ -394,10 +395,12 @@
       <div class="container">
         <div class="section__head">
           <span class="eyebrow">03 · Modelos suportados</span>
-          <h2>Benchmarks em modelos <span class="accent">destilados reais.</span></h2>
+          <h2>Targets de performance em modelos <span class="accent">destilados reais.</span></h2>
           <p class="lead">
-            Tokens/segundo medidos no SoC com llama.cpp v0.3.2 (CPU+NPU), contexto de 2048 e prompt de 256 tokens.
-            Modelos quantizados em Q4_K_M salvo indicação. Valores marcados com <span class="badge badge--hailo">H</span> usam o acelerador Hailo-8L.
+            Valores abaixo são <strong>targets de engenharia</strong> para a configuração CPU + NPU + Hailo-8L,
+            com llama.cpp e RKNN-Toolkit2. Contexto de 2048, prompt de 256 tokens, quantização Q4_K_M salvo
+            indicação. Medições finais com placa EVT-2 são publicadas no <em>data room</em> sob NDA.
+            Valores marcados <span class="badge badge--hailo">H</span> rodam no acelerador Hailo-8L.
           </p>
         </div>
 
@@ -419,42 +422,42 @@
               <tr>
                 <td><strong>Llama 3.2 1B Instruct</strong> <span class="muted">Meta</span></td>
                 <td>1.23 B</td><td>Q4_K_M</td><td>0.70 GB</td><td>1.1 GB</td>
-                <td class="num">412 tok/s</td><td class="num"><strong>45 tok/s</strong></td><td class="num">68 ms</td>
+                <td class="num">~180 tok/s</td><td class="num"><strong>~15-25 tok/s</strong></td><td class="num">~120 ms</td>
               </tr>
               <tr>
                 <td><strong>Llama 3.2 3B Instruct</strong> <span class="muted">Meta</span></td>
                 <td>3.21 B</td><td>Q4_K_M</td><td>2.02 GB</td><td>2.8 GB</td>
-                <td class="num">186 tok/s</td><td class="num"><strong>18 tok/s</strong></td><td class="num">145 ms</td>
+                <td class="num">~80 tok/s</td><td class="num"><strong>~6-12 tok/s</strong></td><td class="num">~220 ms</td>
               </tr>
               <tr>
                 <td><strong>Phi-3.5 Mini Instruct</strong> <span class="muted">Microsoft</span></td>
                 <td>3.82 B</td><td>Q4_K_M</td><td>2.31 GB</td><td>3.0 GB</td>
-                <td class="num">164 tok/s</td><td class="num"><strong>14 tok/s</strong></td><td class="num">156 ms</td>
+                <td class="num">~70 tok/s</td><td class="num"><strong>~5-10 tok/s</strong></td><td class="num">~240 ms</td>
               </tr>
               <tr>
                 <td><strong>Qwen 2.5 1.5B Instruct</strong> <span class="muted">Alibaba</span></td>
                 <td>1.54 B</td><td>Q4_K_M</td><td>0.99 GB</td><td>1.4 GB</td>
-                <td class="num">352 tok/s</td><td class="num"><strong>32 tok/s</strong></td><td class="num">82 ms</td>
+                <td class="num">~150 tok/s</td><td class="num"><strong>~12-20 tok/s</strong></td><td class="num">~140 ms</td>
               </tr>
               <tr>
                 <td><strong>Qwen 2.5 0.5B Instruct</strong> <span class="muted">Alibaba</span></td>
                 <td>494 M</td><td>Q4_K_M</td><td>0.39 GB</td><td>0.7 GB</td>
-                <td class="num">726 tok/s</td><td class="num"><strong>71 tok/s</strong></td><td class="num">38 ms</td>
+                <td class="num">~320 tok/s</td><td class="num"><strong>~30-45 tok/s</strong></td><td class="num">~70 ms</td>
               </tr>
               <tr>
                 <td><strong>Gemma 2 2B Instruct</strong> <span class="muted">Google</span></td>
                 <td>2.61 B</td><td>Q4_K_M</td><td>1.55 GB</td><td>2.2 GB</td>
-                <td class="num">238 tok/s</td><td class="num"><strong>22 tok/s</strong></td><td class="num">112 ms</td>
+                <td class="num">~100 tok/s</td><td class="num"><strong>~8-14 tok/s</strong></td><td class="num">~180 ms</td>
               </tr>
               <tr>
                 <td><strong>TinyLlama 1.1B Chat</strong> <span class="muted">TinyLlama</span></td>
                 <td>1.10 B</td><td>Q4_K_M</td><td>0.63 GB</td><td>0.9 GB</td>
-                <td class="num">468 tok/s</td><td class="num"><strong>52 tok/s</strong></td><td class="num">60 ms</td>
+                <td class="num">~200 tok/s</td><td class="num"><strong>~18-28 tok/s</strong></td><td class="num">~110 ms</td>
               </tr>
               <tr>
                 <td><strong>SmolLM2 1.7B</strong> <span class="muted">Hugging Face</span></td>
                 <td>1.71 B</td><td>Q4_K_M</td><td>1.04 GB</td><td>1.5 GB</td>
-                <td class="num">324 tok/s</td><td class="num"><strong>28 tok/s</strong></td><td class="num">88 ms</td>
+                <td class="num">~140 tok/s</td><td class="num"><strong>~10-16 tok/s</strong></td><td class="num">~150 ms</td>
               </tr>
               <tr>
                 <td><strong>DistilBERT base</strong> <span class="muted">Hugging Face</span> <span class="badge badge--hailo">H</span></td>
@@ -476,7 +479,9 @@
         </div>
 
         <p class="footnote">
-          Medidas em sala fechada a 24 °C com heatsink passivo de 25 × 25 × 8 mm. Throughput sustentado por 30 min sem throttling.
+          Targets para placa EVT-2 + heatsink passivo 25 × 25 × 8 mm a 24 °C. Throughput sustentado 30 min sem throttling
+          é meta de validação no DVT (Q3 2026). Suporte de NPU para LLMs com runtimes upstream (llama.cpp, MLC-LLM) está
+          em evolução rápida — números refletem nossa pipeline interna de otimização.
         </p>
       </div>
     </section>
@@ -486,10 +491,10 @@
       <div class="container">
         <div class="section__head">
           <span class="eyebrow">04 · Casos de uso</span>
-          <h2>Verticais com <span class="accent">dor de produção real</span> · pilotos pagos em andamento.</h2>
+          <h2>Seis verticais com <span class="accent">dor de produção real</span> para inferência on-prem.</h2>
           <p class="lead">
-            Em 8 meses de pré-vendas a empresas-piloto, identificamos 6 verticais onde inferência local não é
-            “bom ter” — é requisito regulatório ou operacional. Cada um já tem cliente design-in assinado.
+            Verticais onde inferência local não é “bom ter” — é requisito regulatório ou operacional.
+            Discussões com prospects em andamento; pipeline atualizado sob NDA.
           </p>
         </div>
 
@@ -497,38 +502,38 @@
           <article class="card usecase">
             <span class="usecase__icon" aria-hidden="true">🌾</span>
             <h3>Agro · visão computacional</h3>
-            <p>Pulverizadores inteligentes identificam erva daninha em campo sem conexão. <strong>1 cliente piloto</strong> (cooperativa MT), 240 unidades/safra.</p>
-            <span class="usecase__tag">Pronto · piloto Q3 2026</span>
+            <p>Pulverizadores inteligentes identificam erva daninha em campo sem conexão. Modelos de detecção + Llama 3.2 para relatórios offline.</p>
+            <span class="usecase__tag">Prospects · cooperativas</span>
           </article>
           <article class="card usecase">
             <span class="usecase__icon" aria-hidden="true">🏭</span>
             <h3>Indústria 4.0 · QA visual</h3>
-            <p>Inspeção de defeitos em linha de produção com Whisper para voz do operador + visão. <strong>2 LOIs</strong> com integradoras (SP, RS).</p>
-            <span class="usecase__tag">LOI · piloto Q4 2026</span>
+            <p>Inspeção de defeitos em linha de produção com Whisper (voz do operador) + visão. Latência on-prem &lt; 100 ms.</p>
+            <span class="usecase__tag">Prospects · integradoras BR</span>
           </article>
           <article class="card usecase">
             <span class="usecase__icon" aria-hidden="true">🏥</span>
             <h3>Saúde · triagem on-prem</h3>
-            <p>LLM destilado roda no posto de saúde com dados sob LGPD. Phi-3.5 Mini gera prontuário a partir da fala.</p>
-            <span class="usecase__tag">Conversa avançada · 3 clínicas</span>
+            <p>LLM destilado roda no posto de saúde com dados sob LGPD. Phi-3.5 Mini gera anotação clínica a partir da fala.</p>
+            <span class="usecase__tag">Prospects · clínicas BR</span>
           </article>
           <article class="card usecase">
             <span class="usecase__icon" aria-hidden="true">🛒</span>
             <h3>Varejo · self-checkout</h3>
-            <p>Reconhecimento de produto em quiosques sem nuvem. Latência abaixo de 60 ms · custo de cloud zero.</p>
-            <span class="usecase__tag">Em validação · rede regional</span>
+            <p>Reconhecimento de produto em quiosques sem nuvem. Custo de inferência marginal próximo de zero após o CapEx.</p>
+            <span class="usecase__tag">Em prospecção</span>
           </article>
           <article class="card usecase">
             <span class="usecase__icon" aria-hidden="true">🛡️</span>
             <h3>Defesa · análise de borda</h3>
-            <p>Plataforma classificada para uso em VANTs e bases avançadas. Operação air-gapped, BSP certificado.</p>
-            <span class="usecase__tag">Sob NDA · MOU assinado</span>
+            <p>Plataforma para uso em VANTs e bases avançadas. Operação air-gapped, BSP customizável sob contrato.</p>
+            <span class="usecase__tag">Discussões sob NDA</span>
           </article>
           <article class="card usecase">
             <span class="usecase__icon" aria-hidden="true">🎓</span>
             <h3>Educação · tutor offline</h3>
-            <p>Llama 3.2 1B atende alunos em escolas sem internet estável. R$ 1 200 por estação vs. assinatura SaaS infinita.</p>
-            <span class="usecase__tag">Pedagógico · 12 escolas</span>
+            <p>Llama 3.2 1B atende alunos em escolas sem internet estável. CapEx único vs. assinatura SaaS recorrente.</p>
+            <span class="usecase__tag">Em prospecção</span>
           </article>
         </div>
       </div>
@@ -561,9 +566,9 @@
               <tr><td>RAM máxima</td><td class="us"><strong>16 GB LPDDR5</strong></td><td>8 GB LPDDR5</td><td>8 GB LPDDR4X</td><td>16 GB LPDDR4X</td></tr>
               <tr><td>NPU integrada</td><td class="us">6 TOPS</td><td>40 TOPS (GPU)</td><td>—</td><td>6 TOPS</td></tr>
               <tr><td>Expansão M.2 acelerador</td><td class="us"><strong>Sim (Hailo-8L)</strong></td><td>Não</td><td>Sim (Coral PCIe)</td><td>Não</td></tr>
-              <tr><td>Tokens/s · Llama 3.2 3B Q4</td><td class="us"><strong>18 tok/s</strong></td><td>22 tok/s</td><td>6 tok/s</td><td>15 tok/s</td></tr>
+              <tr><td>Tokens/s · Llama 3.2 3B Q4 <span class="muted">(target)</span></td><td class="us"><strong>~15 tok/s</strong></td><td>~20 tok/s</td><td>~6 tok/s</td><td>~12 tok/s</td></tr>
               <tr><td>BOM (vol. 1 000)</td><td class="us"><strong>US$ 168</strong></td><td>US$ 199 (módulo)</td><td>US$ 135 + US$ 60</td><td>US$ 159</td></tr>
-              <tr><td>Preço lista dev kit</td><td class="us">US$ 349</td><td>US$ 499</td><td>US$ 280</td><td>US$ 219</td></tr>
+              <tr><td>Preço lista dev kit</td><td class="us">US$ 349</td><td>US$ 249 <span class="muted">(Super)</span></td><td>US$ 195</td><td>US$ 219</td></tr>
               <tr><td>Modelo de licenciamento</td><td class="us"><strong>IP proprietário · contrato OEM</strong></td><td>Proprietária</td><td>Proprietária</td><td>Parcial</td></tr>
               <tr><td>Suporte BSP local</td><td class="us"><strong>Time BR · pt-BR</strong></td><td>NVIDIA global</td><td>Comunidade</td><td>Comunidade</td></tr>
               <tr><td>Conformidade IPC entregue</td><td class="us"><strong>Class 2 (Class 3 opcional)</strong></td><td>Class 2</td><td>Class 2</td><td>Class 2</td></tr>
@@ -627,7 +632,7 @@
             <g class="blk">
               <rect x="600" y="60" width="120" height="60" rx="8"/>
               <text x="660" y="88" text-anchor="middle" class="t-title">LPDDR5 ×4</text>
-              <text x="660" y="106" text-anchor="middle" class="t-sub">16 GB · 51.2 GB/s</text>
+              <text x="660" y="106" text-anchor="middle" class="t-sub">16 GB · ~44 GB/s</text>
             </g>
 
             <!-- M.2 / Hailo -->
@@ -727,19 +732,19 @@
 
         <div class="grid-3">
           <article class="card metric">
-            <span class="metric__label">Banda mínima necessária</span>
-            <span class="metric__value">38 GB/s</span>
-            <span class="metric__desc">Para 30 tok/s em modelo de 2 B parâmetros Q4 (= 1 GB lido por token × 30).</span>
+            <span class="metric__label">Banda mínima para 15 tok/s</span>
+            <span class="metric__value">~17 GB/s</span>
+            <span class="metric__desc">Modelo 1 B Q4 (≈ 0,7 GB lido por token × 15 tok/s + overheads).</span>
           </article>
           <article class="card metric">
             <span class="metric__label">Banda disponível</span>
-            <span class="metric__value accent">51.2 GB/s</span>
-            <span class="metric__desc">LPDDR5-6400 4×32 bit. Folga de 35 % para ativações simultâneas.</span>
+            <span class="metric__value accent">~44 GB/s</span>
+            <span class="metric__desc">LPDDR5-5500 quad-channel 4×16-bit do RK3588. Folga 2,5× para ativações + KV-cache.</span>
           </article>
           <article class="card metric">
-            <span class="metric__label">Eficiência energética</span>
-            <span class="metric__value">3.75 tok/J</span>
-            <span class="metric__desc">Llama 3.2 1B Q4 a 12 W sustentado · 45 tok/s.</span>
+            <span class="metric__label">Eficiência energética (target)</span>
+            <span class="metric__value">~1,3 tok/J</span>
+            <span class="metric__desc">Llama 3.2 1B Q4 · 12 W sustentado · target 15 tok/s CPU. NPU-offload em validação para 3-5× ganho.</span>
           </article>
         </div>
 
@@ -804,19 +809,19 @@
 
         <div class="grid-3" style="margin-top: 1.5rem;">
           <article class="card metric">
-            <span class="metric__label">BOM @ 1 k</span>
+            <span class="metric__label">BOM @ 1 k (estimativa)</span>
             <span class="metric__value">US$ 168</span>
-            <span class="metric__desc">Cai para US$ 142 em volume de 10 k (curva validada com fabricantes parceiros em SP e Shenzhen).</span>
+            <span class="metric__desc">Indicativo; curva de volume e fornecedores parceiros consolidados até PVT.</span>
           </article>
           <article class="card metric">
-            <span class="metric__label">Preço lista dev kit</span>
+            <span class="metric__label">Preço lista dev kit (target)</span>
             <span class="metric__value accent">US$ 349</span>
-            <span class="metric__desc">Margem bruta 52 % a 1 k unidades · 58 % a 10 k. Inclui heatsink, antena, cabo USB-C 65 W.</span>
+            <span class="metric__desc">Inclui heatsink, antena, cabo USB-C PD. Posicionamento premium vs. Jetson Orin Nano Super (US$ 249), justificado por 16 GB RAM + suporte enterprise.</span>
           </article>
           <article class="card metric">
-            <span class="metric__label">Margem do canal</span>
-            <span class="metric__value">30 %</span>
-            <span class="metric__desc">Programa de parceiros (integradoras industriais e revendas técnicas) já com 14 cadastros pré-qualificados.</span>
+            <span class="metric__label">Margem do canal (target)</span>
+            <span class="metric__value">25-30 %</span>
+            <span class="metric__desc">Estrutura típica para programa de parceiros B2B industrial. Definições finais no programa OEM.</span>
           </article>
         </div>
       </div>
@@ -948,71 +953,71 @@
 
         <ol class="timeline" aria-label="Linha do tempo do projeto">
           <li class="timeline__item is-done">
-            <div class="timeline__when">Q3 2025</div>
+            <div class="timeline__when">2025 H2</div>
             <div class="timeline__what">
               <h3>Conceito + R&amp;D inicial</h3>
-              <p>Validação de stack (RK3588 + LPDDR5 + llama.cpp). 4 pesquisadores · contrato de transferência tecnológica com UFMG.</p>
+              <p>Validação da stack (RK3588 + LPDDR5 + llama.cpp). Definição do escopo e parceiros acadêmicos.</p>
             </div>
           </li>
           <li class="timeline__item is-done">
             <div class="timeline__when">Q4 2025</div>
             <div class="timeline__what">
               <h3>Esquemático rev A + simulação</h3>
-              <p>SI/PI simulada em Ansys SIwave. Stackup HDI 3+N+3 fechado com fabricante parceiro em Indaiatuba (SP).</p>
+              <p>SI/PI simulada. Stackup HDI 3+N+3 dimensionado. Seleção de fabricante parceiro IPC Class 2.</p>
             </div>
           </li>
           <li class="timeline__item is-done">
             <div class="timeline__when">Q1 2026</div>
             <div class="timeline__what">
-              <h3>EVT · 30 amostras</h3>
-              <p>Primeiro spin de placa. 28/30 funcionais, 2 retrabalhos. Yield 93 %. Benchmarks dos modelos publicados.</p>
+              <h3>EVT · primeiro spin</h3>
+              <p>Primeiras amostras fabricadas e testadas. Diagnóstico de yield e ajustes de layout.</p>
             </div>
           </li>
           <li class="timeline__item is-now">
             <div class="timeline__when">Q2 2026</div>
             <div class="timeline__what">
               <h3>EVT-2 · rev B.2 (atual)</h3>
-              <p><strong>Você está aqui.</strong> Distribuição de samples para 12 clientes design-in. Captação seed em curso.</p>
+              <p><strong>Você está aqui.</strong> Engenharia da rev B.2 em validação. Distribuição de samples para clientes-piloto sob NDA.</p>
             </div>
           </li>
           <li class="timeline__item">
             <div class="timeline__when">Q3 2026</div>
             <div class="timeline__what">
-              <h3>DVT · 200 unidades</h3>
-              <p>Validação de design. Testes ambientais (IPC-TM-650, temperatura −20 a +70 °C, vibração MIL-STD-810).</p>
+              <h3>DVT · design validation</h3>
+              <p>Validação de design. Testes ambientais (IPC-TM-650, temperatura, vibração) com lote piloto ampliado.</p>
             </div>
           </li>
           <li class="timeline__item">
             <div class="timeline__when">Q4 2026</div>
             <div class="timeline__what">
-              <h3>PVT · 1 000 unidades</h3>
-              <p>Production Validation Test. Certificação Anatel + FCC + CE. Primeiro lote de venda comercial.</p>
+              <h3>PVT · production validation</h3>
+              <p>Production Validation Test. Trabalho de certificação Anatel + FCC + CE iniciado em paralelo.</p>
             </div>
           </li>
           <li class="timeline__item">
-            <div class="timeline__when">Q1 2027</div>
+            <div class="timeline__when">2027</div>
             <div class="timeline__what">
-              <h3>MP · 10 k unidades / ano</h3>
-              <p>Mass production. Meta: R$ 9 M ARR no primeiro ano comercial. Series A planejada para Q3 2027.</p>
+              <h3>Mass production + primeiro contrato OEM</h3>
+              <p>Início de produção em escala. Metas comerciais e projeções financeiras detalhadas no data room sob NDA.</p>
             </div>
           </li>
         </ol>
 
         <div class="grid-3" style="margin-top: 2.5rem;">
           <article class="card metric">
-            <span class="metric__label">Pedidos pré-EVT</span>
-            <span class="metric__value">312 un.</span>
-            <span class="metric__desc">Cartas de intenção assinadas. R$ 1.08 M em pipeline qualificado.</span>
+            <span class="metric__label">Pipeline qualificado</span>
+            <span class="metric__value">Em construção</span>
+            <span class="metric__desc">Cartas de intenção em discussão com prospects de agro, indústria e saúde. Números detalhados sob NDA.</span>
           </article>
           <article class="card metric">
-            <span class="metric__label">Clientes design-in</span>
-            <span class="metric__value accent">12</span>
-            <span class="metric__desc">3 em agro, 2 indústria, 2 saúde, 2 varejo, 1 defesa, 2 educação.</span>
+            <span class="metric__label">Clientes em conversa</span>
+            <span class="metric__value accent">Sob NDA</span>
+            <span class="metric__desc">Verticais cobertos: agro, indústria 4.0, saúde, varejo, defesa, educação. Pipeline atualizado a cada trimestre.</span>
           </article>
           <article class="card metric">
-            <span class="metric__label">Patentes em análise</span>
-            <span class="metric__value">2</span>
-            <span class="metric__desc">INPI BR · sistema de gestão térmica passiva + arranjo otimizado LPDDR5 para inferência LLM.</span>
+            <span class="metric__label">Propriedade intelectual</span>
+            <span class="metric__value">Em mapeamento</span>
+            <span class="metric__desc">Estudo de patenteabilidade em curso para o sistema de gestão térmica e arranjo otimizado de memória.</span>
           </article>
         </div>
       </div>
@@ -1023,10 +1028,10 @@
       <div class="container">
         <div class="section__head">
           <span class="eyebrow">11 · Time</span>
-          <h2>Engenheiros que já <span class="accent">colocaram silício no mundo.</span></h2>
+          <h2>Fundador técnico &amp; <span class="accent">time em consolidação.</span></h2>
           <p class="lead">
-            Núcleo de 7 pessoas com experiência combinada em mais de 40 placas em produção. Headquartered em
-            Belo Horizonte com hub de engenharia em Campinas.
+            Núcleo fundador liderado por engenheiro/pesquisador com background em IA aplicada e produção de hardware.
+            Posições-chave (CTO, BSP lead, ML, GTM) em recrutamento ativo. Mapa de contratações detalhado no data room.
           </p>
         </div>
 
@@ -1035,61 +1040,56 @@
             <div class="team__avatar" aria-hidden="true">DS</div>
             <div class="team__info">
               <h3>Dheiver Santos</h3>
-              <p class="team__role">CEO &amp; co-fundador</p>
-              <p class="team__bio">PhD em IA aplicada. 12 anos liderando squads de hardware e ML em healthtechs.</p>
-            </div>
-          </article>
-          <article class="card team">
-            <div class="team__avatar" aria-hidden="true">CT</div>
-            <div class="team__info">
-              <h3>CTO · co-fundador</h3>
-              <p class="team__role">Hardware lead</p>
-              <p class="team__bio">Ex-Positivo · 9 anos em design de PCBs HDI. Liderou 3 produtos certificados Anatel/FCC.</p>
-            </div>
-          </article>
-          <article class="card team">
-            <div class="team__avatar" aria-hidden="true">FW</div>
-            <div class="team__info">
-              <h3>VP Firmware</h3>
-              <p class="team__role">BSP &amp; runtime</p>
-              <p class="team__bio">Mainline Linux contributor. Mantenedor de driver upstream para Rockchip RK3588.</p>
-            </div>
-          </article>
-          <article class="card team">
-            <div class="team__avatar" aria-hidden="true">ML</div>
-            <div class="team__info">
-              <h3>Head of ML</h3>
-              <p class="team__role">Otimização &amp; quantização</p>
-              <p class="team__bio">Ex-Hugging Face. Contribuiu para llama.cpp e MLC-LLM. Especialista em kernels NPU.</p>
-            </div>
-          </article>
-          <article class="card team">
-            <div class="team__avatar" aria-hidden="true">GP</div>
-            <div class="team__info">
-              <h3>Head of GTM</h3>
-              <p class="team__role">Vendas &amp; canal</p>
-              <p class="team__bio">Construiu canal técnico de 60 integradoras em 2 unicórnios industriais brasileiros.</p>
+              <p class="team__role">Fundador</p>
+              <p class="team__bio">Engenheiro/pesquisador em IA aplicada e produto. Liderança técnica do projeto. Perfil completo:
+                <a href="https://github.com/dheiver2" target="_blank" rel="noopener">github.com/dheiver2</a>.</p>
             </div>
           </article>
           <article class="card team team--ghost">
-            <div class="team__avatar team__avatar--ghost" aria-hidden="true">+2</div>
+            <div class="team__avatar team__avatar--ghost" aria-hidden="true">CT</div>
             <div class="team__info">
-              <h3>2 vagas abertas</h3>
-              <p class="team__role">SI/PI senior · ML compiler</p>
-              <p class="team__bio">Roles previstos no orçamento da rodada seed atual.</p>
+              <h3>CTO · hardware lead</h3>
+              <p class="team__role">Em recrutamento</p>
+              <p class="team__bio">Posição prioritária: 10+ anos em PCBs multilayer HDI, experiência em certificação Anatel/FCC.</p>
+            </div>
+          </article>
+          <article class="card team team--ghost">
+            <div class="team__avatar team__avatar--ghost" aria-hidden="true">FW</div>
+            <div class="team__info">
+              <h3>BSP &amp; firmware lead</h3>
+              <p class="team__role">Em recrutamento</p>
+              <p class="team__bio">Linux mainline, U-Boot, drivers Rockchip. Cargo previsto após primeiro fechamento da rodada.</p>
+            </div>
+          </article>
+          <article class="card team team--ghost">
+            <div class="team__avatar team__avatar--ghost" aria-hidden="true">ML</div>
+            <div class="team__info">
+              <h3>ML &amp; runtime lead</h3>
+              <p class="team__role">Em recrutamento</p>
+              <p class="team__bio">Quantização, kernels NPU, llama.cpp/MLC-LLM. Atualmente coberto por consultoria especializada.</p>
+            </div>
+          </article>
+          <article class="card team team--ghost">
+            <div class="team__avatar team__avatar--ghost" aria-hidden="true">GP</div>
+            <div class="team__info">
+              <h3>Head of GTM</h3>
+              <p class="team__role">Em recrutamento</p>
+              <p class="team__bio">Vendas técnicas B2B, canal de integradoras industriais. Início programado para fase PVT.</p>
+            </div>
+          </article>
+          <article class="card team team--ghost">
+            <div class="team__avatar team__avatar--ghost" aria-hidden="true">A+</div>
+            <div class="team__info">
+              <h3>Advisory board</h3>
+              <p class="team__role">Em formação</p>
+              <p class="team__bio">Conversas em curso com perfis de hardware industrial, microeletrônica acadêmica e GTM deep-tech.</p>
             </div>
           </article>
         </div>
 
-        <div class="advisors card">
-          <h3>Advisory board</h3>
-          <ul class="advisors__list">
-            <li>Diretor de hardware · ex-Foxconn Brasil <span class="muted">· Industrialização</span></li>
-            <li>Professor titular de microeletrônica · USP <span class="muted">· P&amp;D &amp; convênios</span></li>
-            <li>Sócio investidor early-stage · fundo deep-tech <span class="muted">· GTM B2B industrial</span></li>
-            <li>VP de IA · multinacional de defesa <span class="muted">· Acesso a clientes regulados</span></li>
-          </ul>
-        </div>
+        <p class="footnote">
+          Esta página mostra o desenho de time alvo. Composição atual e currículos detalhados são compartilhados com investidores qualificados sob NDA, junto com o cap table e o orçamento de contratações.
+        </p>
       </div>
     </section>
 
@@ -1098,49 +1098,51 @@
       <div class="container">
         <div class="section__head">
           <span class="eyebrow">12 · Investimento</span>
-          <h2>Rodada <span class="accent">seed aberta</span> · ticket mínimo R$ 250 k.</h2>
+          <h2>Rodada <span class="accent">seed em estruturação.</span></h2>
           <p class="lead">
-            Captação dimensionada para levar a placa do EVT-2 ao primeiro lote comercial (PVT 1 k) + certificações
-            regulatórias + escalar o time comercial. Runway de 18 meses, com break-even projetado para Q1 2028.
+            Captação dimensionada para levar a placa do EVT-2 ao primeiro lote comercial (PVT) + certificações
+            regulatórias + estruturação do time comercial. Termos, valuation e runway detalhados são compartilhados
+            com investidores qualificados após NDA.
           </p>
         </div>
 
         <div class="invest-grid">
           <article class="card invest invest--primary">
-            <span class="invest__label">Rodada</span>
-            <span class="invest__value">R$ 6 M</span>
-            <span class="invest__desc">SAFE com cap pós · valuation cap R$ 28 M · desconto 20 % · MFN.</span>
+            <span class="invest__label">Instrumento</span>
+            <span class="invest__value">SAFE</span>
+            <span class="invest__desc">Simple Agreement for Future Equity · estrutura padrão Y Combinator (cap + desconto · MFN).</span>
           </article>
           <article class="card invest">
-            <span class="invest__label">Já comprometido</span>
-            <span class="invest__value">R$ 2.1 M</span>
-            <span class="invest__desc">Anjos &amp; family office (35 % da rodada). Lead investor sob LOI.</span>
+            <span class="invest__label">Valuation cap</span>
+            <span class="invest__value">Sob NDA</span>
+            <span class="invest__desc">Termos definitivos compartilhados com investidores qualificados no data room.</span>
           </article>
           <article class="card invest">
-            <span class="invest__label">Runway projetado</span>
-            <span class="invest__value">18 meses</span>
-            <span class="invest__desc">Até Q4 2027 · cobre PVT, certificações e os primeiros 2 trimestres comerciais.</span>
+            <span class="invest__label">Runway alvo</span>
+            <span class="invest__value">18-24 m</span>
+            <span class="invest__desc">Janela suficiente para concluir DVT, PVT e iniciar receita comercial. Detalhamento no plano financeiro.</span>
           </article>
         </div>
 
         <div class="grid-2" style="margin-top: 1.5rem;">
           <article class="card">
-            <h3>Uso dos recursos</h3>
+            <h3>Uso dos recursos (alocação alvo)</h3>
             <ul class="bullets">
-              <li><strong>42 % · Produto</strong> — PVT 1 000 un., rev C, ferramentaria, BSP, testes ambientais.</li>
-              <li><strong>26 % · Certificações</strong> — Anatel, FCC, CE, IPC class audit, ANVISA para vertical saúde.</li>
-              <li><strong>22 % · GTM</strong> — Head of GTM, 3 engenheiros de aplicação, programa de canal, marketing técnico.</li>
-              <li><strong>10 % · G&amp;A &amp; reserva</strong> — Jurídico, contábil, contingências, capital de giro inicial.</li>
+              <li><strong>~40 % · Produto</strong> — DVT, PVT, ferramentaria, BSP, testes ambientais IPC-TM-650.</li>
+              <li><strong>~25 % · Certificações</strong> — Anatel, FCC, CE, auditoria IPC Class 2, ANVISA para vertical saúde.</li>
+              <li><strong>~25 % · Time + GTM</strong> — CTO, BSP lead, ML lead, Head of GTM, engenharia de aplicação.</li>
+              <li><strong>~10 % · G&amp;A &amp; reserva</strong> — Jurídico, contábil, contingências, capital de giro inicial.</li>
             </ul>
+            <p class="muted" style="font-size:.82rem;margin:.5rem 0 0;">Alocação indicativa · sujeita a refinamento com lead investor.</p>
           </article>
           <article class="card">
             <h3>Por que apostar agora</h3>
             <ul class="bullets">
-              <li><strong>Janela competitiva de 18 meses</strong> antes de NVIDIA/Qualcomm dominarem 16 GB sub-US$ 200.</li>
-              <li><strong>Demanda represada confirmada</strong> — R$ 1 M em pipeline antes do produto comercial.</li>
-              <li><strong>Risco técnico mitigado</strong> — EVT-2 funcional, BSP estável, benchmarks reproduzíveis.</li>
-              <li><strong>Soberania como vetor regulatório</strong> — política nacional de IA + LGPD criam demanda obrigatória.</li>
-              <li><strong>Time sênior, equity disponível</strong> — 7 fundadores e líderes diluídos para alocar lead investor com cadeira.</li>
+              <li><strong>Janela competitiva</strong> — espaço entre módulos consumer e classes server abriu com a queda de preço dos SoCs ARM e maturidade de LLMs destilados.</li>
+              <li><strong>Demanda regulatória</strong> — LGPD + AI Act + políticas de IA soberana empurram empresas para inferência on-prem.</li>
+              <li><strong>Risco técnico contido</strong> — componentes COTS de fornecedores estabelecidos (Rockchip, Hailo) + stack de software conhecida (Linux + llama.cpp + RKNN).</li>
+              <li><strong>Equity disponível</strong> — fundador único, cap table limpo, espaço para alocar lead com cadeira no board.</li>
+              <li><strong>Modelo de receita híbrido</strong> — venda direta de dev kits + contratos OEM com royalties por unidade + suporte premium recorrente.</li>
             </ul>
           </article>
         </div>
