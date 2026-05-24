@@ -1,8 +1,11 @@
 # Mangaba Edge AI
 
+> Site oficial: **[mangaba-edge-ai.online](https://mangaba-edge-ai.online/)**
+> (espelho legado em `dheiver2.github.io/mangaba-edge-ai/` durante propagação DNS)
+
 PCB de 8 camadas (85 × 55 mm) dimensionada para inferência local de **modelos de IA destilados reais** — Llama 3.2 (1B/3B), Phi-3.5 Mini, Qwen 2.5, Gemma 2, TinyLlama, Whisper distilled, DistilBERT, MiniLM.
 
-A página deste repositório é publicada via **GitHub Pages** e segue o sistema de design da família Mangaba ([mangaba.chat](https://mangaba.chat/), [mangaba-voice.tech](https://mangaba-voice.tech/)): paleta warm-cream com terracota `#D97757`, tipografia Inter, cards flat e bordas sutis.
+A página deste repositório é publicada via **GitHub Pages** com domínio próprio `mangaba-edge-ai.online` e segue o sistema de design da família Mangaba ([mangaba.chat](https://mangaba.chat/), [mangaba-voice.tech](https://mangaba-voice.tech/)): paleta warm-cream com terracota `#D97757`, tipografia Inter, cards flat e bordas sutis.
 
 ---
 
