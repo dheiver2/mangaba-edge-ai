@@ -1,14 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Folha -->
-  <path d="M 32 16 C 24 8, 14 11, 15 18 C 16 23, 26 23, 33 18 Z" fill="#7DA84A"/>
-  <!-- Nervura central da folha -->
-  <path d="M 17 16 Q 24 16, 31 18" stroke="#5A8235" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  <defs>
+    <radialGradient id="mng-fruit" cx="40%" cy="34%" r="68%">
+      <stop offset="0%"  stop-color="#FFE085"/>
+      <stop offset="55%" stop-color="#F5B342"/>
+      <stop offset="100%" stop-color="#E07A3E"/>
+    </radialGradient>
+    <linearGradient id="mng-leaf" x1="0" y1="100%" x2="100%" y2="0">
+      <stop offset="0%"  stop-color="#7AAD3A"/>
+      <stop offset="100%" stop-color="#A8CD6B"/>
+    </linearGradient>
+  </defs>
+  <!-- Folha (curvada · top-left da fruta) -->
+  <path d="M 32 16 C 24 8, 12 10, 14 18 C 16 24, 26 23, 33 18 Z" fill="url(#mng-leaf)"/>
+  <!-- Nervura central -->
+  <path d="M 16 16 Q 24 16, 31 18" stroke="#5A8235" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.85"/>
   <!-- Pedúnculo / cabinho -->
   <rect x="30.5" y="12" width="2.5" height="6" rx="1" fill="#5C3A24"/>
   <!-- Fruto -->
-  <circle cx="32" cy="40" r="22" fill="#DD7B4E"/>
-  <!-- Sombra interna inferior -->
-  <ellipse cx="32" cy="48" rx="18" ry="10" fill="#B85838" opacity="0.22"/>
+  <circle cx="32" cy="40" r="22" fill="url(#mng-fruit)"/>
+  <!-- Blush peach lateral inferior direita -->
+  <ellipse cx="42" cy="48" rx="10" ry="8" fill="#FF9966" opacity="0.32" transform="rotate(18 42 48)"/>
   <!-- Brilho/highlight superior esquerdo -->
-  <ellipse cx="24" cy="30" rx="6" ry="4" fill="#FFFFFF" opacity="0.24" transform="rotate(-22 24 30)"/>
+  <ellipse cx="24" cy="30" rx="7" ry="4" fill="#FFFFFF" opacity="0.42" transform="rotate(-22 24 30)"/>
 </svg>
