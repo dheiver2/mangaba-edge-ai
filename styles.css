@@ -27,8 +27,8 @@
   --border-strong: hsl(34, 28%, 76%);
   --card: #FFFFFF;
   --card-warm: #FCF6E5;
-  --shadow-sm: 0 1px 2px rgba(45, 38, 32, 0.04);
-  --shadow-md: 0 6px 22px rgba(45, 38, 32, 0.08);
+  --shadow-sm: 0 1px 2px rgba(184, 90, 26, 0.06);
+  --shadow-md: 0 8px 28px -6px rgba(184, 90, 26, 0.12), 0 2px 6px rgba(45, 38, 32, 0.04);
 
   /* Status */
   --ok: var(--leaf);
@@ -217,6 +217,79 @@ em { font-family: var(--font-serif); font-style: italic; }
   margin-bottom: 1rem;
 }
 .lead { font-size: 1.05rem; color: var(--fg-muted); max-width: 60ch; }
+
+/* =========== Padrão de pontos · editorial sutil =========== */
+.dotted {
+  position: relative;
+  isolation: isolate;
+}
+.dotted::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at center, color-mix(in srgb, var(--brand) 22%, transparent) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+  background-position: 0 0;
+  opacity: .55;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* =========== Mango gradients · CTAs e text accents =========== */
+.btn--primary {
+  background: linear-gradient(135deg, #F5B342 0%, #F47F2C 55%, #E76B1F 100%) !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 14px -4px rgba(184, 90, 26, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+.btn--primary:hover {
+  background: linear-gradient(135deg, #F8BE52 0%, #FF8D38 55%, #D96320 100%) !important;
+  box-shadow: 0 6px 18px -4px rgba(184, 90, 26, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+.accent {
+  background: linear-gradient(135deg, #F5B342 0%, #F47F2C 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--brand);
+}
+
+/* =========== Floating capability pills (hero) =========== */
+.hero__pills {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  margin: 1.5rem 0 0;
+}
+.hero-pill {
+  display: inline-flex; align-items: center; gap: .42rem;
+  padding: .42rem .78rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font: 600 .78rem/1 var(--font-sans);
+  color: var(--fg);
+  box-shadow: 0 4px 12px -6px rgba(184, 90, 26, 0.18);
+  transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.hero-pill:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--brand) 35%, var(--border));
+  box-shadow: 0 6px 16px -6px rgba(184, 90, 26, 0.28);
+}
+.hero-pill__dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: linear-gradient(135deg, #F5B342, #F47F2C);
+  flex-shrink: 0;
+}
+.hero-pill--leaf .hero-pill__dot { background: linear-gradient(135deg, #A8CD6B, #7AAD3A); }
+.hero-pill--gold .hero-pill__dot { background: linear-gradient(135deg, #FFE9A8, #FBD972); }
+
+/* =========== Sombras quentes refinadas =========== */
+.card {
+  box-shadow: var(--shadow-sm);
+}
+.card:hover {
+  box-shadow: 0 8px 24px -10px rgba(184, 90, 26, 0.16);
+}
 
 /* =========== Stage badge (hero) =========== */
 .stage-badge {
