@@ -208,13 +208,24 @@ em { font-family: var(--font-serif); font-style: italic; }
 
 .btn--icon { padding: .55rem; }
 
-/* =========== Eyebrow / lead =========== */
+/* =========== Eyebrow · agora em formato de pill (padrão mangaba.ai) =========== */
 .eyebrow {
-  display: inline-block;
-  font: 600 .72rem/1 var(--font-sans);
-  letter-spacing: .18em; text-transform: uppercase;
-  color: var(--brand);
-  margin-bottom: 1rem;
+  display: inline-flex; align-items: center; gap: .42rem;
+  padding: .42rem .92rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font: 600 .76rem/1 var(--font-sans);
+  letter-spacing: .015em;
+  color: var(--fg);
+  margin-bottom: 1.35rem;
+  box-shadow: 0 2px 8px -4px rgba(184, 90, 26, 0.14);
+}
+.eyebrow::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: linear-gradient(135deg, #F5B342, #F47F2C);
+  flex-shrink: 0;
 }
 .lead { font-size: 1.05rem; color: var(--fg-muted); max-width: 60ch; }
 
@@ -226,14 +237,76 @@ em { font-family: var(--font-serif); font-style: italic; }
 .dotted::before {
   content: "";
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle at center, color-mix(in srgb, var(--brand) 22%, transparent) 1px, transparent 1.5px);
+  background-image: radial-gradient(circle at center, color-mix(in srgb, var(--brand) 38%, transparent) 1.1px, transparent 1.5px);
   background-size: 22px 22px;
   background-position: 0 0;
-  opacity: .55;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 30%, transparent 80%);
+  opacity: .85;
+  mask-image: radial-gradient(ellipse 85% 70% at 50% 45%, #000 40%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 45%, #000 40%, transparent 90%);
   pointer-events: none;
   z-index: -1;
+}
+
+/* Variante com fade para pêssego no rodapé (como o card central da brand-sheet) */
+.dotted--peach::after {
+  content: "";
+  position: absolute; inset: auto 0 0 0; height: 50%;
+  background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--peach) 38%, transparent) 90%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* =========== Color swatches · faixa identitária (verde/laranja/dourado) =========== */
+.swatches {
+  display: flex;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 8px -4px rgba(184, 90, 26, 0.18);
+}
+.swatches > span { flex: 1; }
+.swatches > .sw-leaf  { background: linear-gradient(135deg, var(--leaf-soft), var(--leaf)); }
+.swatches > .sw-orange{ background: linear-gradient(135deg, #F5B342, #F47F2C); }
+.swatches > .sw-gold  { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); }
+
+/* =========== Pílulas flutuantes ao redor do PCB (estilo brand sheet) =========== */
+.float-pill {
+  position: absolute;
+  display: inline-flex; align-items: center; gap: .42rem;
+  padding: .42rem .78rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font: 600 .74rem/1 var(--font-sans);
+  color: var(--fg);
+  box-shadow: 0 6px 16px -6px rgba(184, 90, 26, 0.32), 0 2px 4px rgba(45, 38, 32, 0.06);
+  white-space: nowrap;
+  z-index: 2;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.float-pill__icon {
+  width: 14px; height: 14px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F5B342, #F47F2C);
+  color: #fff; font-size: 9px; font-weight: 700;
+  flex-shrink: 0;
+}
+.float-pill--leaf .float-pill__icon { background: linear-gradient(135deg, var(--leaf-soft), var(--leaf)); }
+.float-pill--gold .float-pill__icon { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color: #5C3A24; }
+
+.board { position: relative; }
+.float-pill--tl { top: 10%; left: -2%; }
+.float-pill--tr { top: 18%; right: -3%; }
+.float-pill--ml { top: 55%; left: -4%; }
+.float-pill--mr { top: 48%; right: -2%; }
+.float-pill--bl { bottom: 18%; left: 4%; }
+.float-pill--br { bottom: 12%; right: 6%; }
+
+@media (max-width: 880px) {
+  .float-pill { position: static; display: none; }
 }
 
 /* =========== Mango gradients · CTAs e text accents =========== */
