@@ -54,7 +54,7 @@
       <nav class="nav__links" aria-label="Navegação principal">
         <a href="#mercado">Mercado</a>
         <a href="#galeria">Galeria</a>
-        <a href="#demos">Demos</a>
+        <a href="#aplicacoes">Aplicações</a>
         <a href="#comparativo">Comparativo</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#investimento">Investimento</a>
@@ -680,78 +680,57 @@
       </div>
     </section>
 
-    <!-- DEMOS AO VIVO -->
-    <section id="demos" class="section">
+    <!-- APLICAÇÕES EM CAMPO -->
+    <section id="aplicacoes" class="section">
       <div class="container">
         <div class="section__head">
-          <span class="eyebrow">Demos ao vivo</span>
-          <h2>O <em>hardware base</em> rodando <span class="accent">de verdade.</span></h2>
+          <span class="eyebrow">Aplicações em campo</span>
+          <h2>Inferência local em <span class="accent">ambientes reais.</span></h2>
           <p class="lead">
-            Três demonstrações públicas em vídeo do silício e do acelerador que compõem a Mangaba Edge AI —
-            RK3588 com NPU e Hailo-8L em produção. Vídeos publicados por canais terceiros independentes;
-            usados aqui como prova de viabilidade técnica.
+            Os ambientes onde a Mangaba Edge AI se encaixa — chão de fábrica, hospital, fazenda, varejo,
+            defesa, sala de aula. Imagery real ilustra cada cenário. Cases proprietários com clientes
+            design-in serão publicados após assinatura comercial.
           </p>
         </div>
 
-        <div class="demos-grid">
-          <article class="demo-card">
-            <div class="demo-card__video">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/J-ztitWPw6g?rel=0&modestbranding=1"
-                title="Running llama.cpp GGUF model with Rockchip RK3588 NPU"
-                loading="lazy"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-            <div class="demo-card__body">
-              <h3 class="demo-card__title">LLM no NPU do RK3588</h3>
-              <p class="demo-card__what">Demonstração de inferência GGUF rodando direto na NPU do Rockchip RK3588 via llama.cpp — exatamente o SoC da nossa placa.</p>
-              <p class="demo-card__credit">Nov 2025 · <a href="https://www.youtube.com/watch?v=J-ztitWPw6g" target="_blank" rel="noopener">canal de origem ↗</a></p>
-            </div>
-          </article>
-
-          <article class="demo-card">
-            <div class="demo-card__video">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/xiHv7xd1drY?rel=0&modestbranding=1"
-                title="Hailo 8L M.2 · Object detection edge"
-                loading="lazy"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-            <div class="demo-card__body">
-              <h3 class="demo-card__title">Hailo-8L · visão na borda</h3>
-              <p class="demo-card__what">Acelerador Hailo-8L M.2 (o mesmo que conecta no slot da Mangaba Edge AI) executando detecção de objetos em tempo real.</p>
-              <p class="demo-card__credit">Ago 2025 · <a href="https://www.youtube.com/watch?v=xiHv7xd1drY" target="_blank" rel="noopener">canal de origem ↗</a></p>
-            </div>
-          </article>
-
-          <article class="demo-card">
-            <div class="demo-card__video">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/s_WaqyemlZA?rel=0&modestbranding=1"
-                title="Standalone AI on Orange Pi 5 Plus (RK3588)"
-                loading="lazy"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-            <div class="demo-card__body">
-              <h3 class="demo-card__title">IA standalone em RK3588</h3>
-              <p class="demo-card__what">Aplicação real de visão computacional 100 % offline em um Orange Pi 5 Plus (mesmo SoC) — sem nuvem, sem internet, sem dependência externa.</p>
-              <p class="demo-card__credit">Jul 2025 · <a href="https://www.youtube.com/watch?v=s_WaqyemlZA" target="_blank" rel="noopener">canal de origem ↗</a></p>
-            </div>
-          </article>
+        <div class="apps-grid">
+          <figure class="app-photo app-photo--wide">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&amp;q=80&amp;auto=format&amp;fit=crop"
+                 alt="Detalhe de placa de circuito impresso em alta densidade"
+                 loading="lazy" decoding="async"/>
+            <figcaption><strong>Hardware on-prem</strong> · processamento local sem dependência de nuvem</figcaption>
+          </figure>
+          <figure class="app-photo">
+            <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=900&amp;q=80&amp;auto=format&amp;fit=crop"
+                 alt="Estação de controle industrial com monitores"
+                 loading="lazy" decoding="async"/>
+            <figcaption><strong>Indústria 4.0</strong> · controle de qualidade e visão de linha</figcaption>
+          </figure>
+          <figure class="app-photo">
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=900&amp;q=80&amp;auto=format&amp;fit=crop"
+                 alt="Maquinário agrícola em plantação"
+                 loading="lazy" decoding="async"/>
+            <figcaption><strong>Agro de precisão</strong> · pulverização e diagnóstico em campo</figcaption>
+          </figure>
+          <figure class="app-photo">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&amp;q=80&amp;auto=format&amp;fit=crop"
+                 alt="Equipe técnica analisando dados em monitor"
+                 loading="lazy" decoding="async"/>
+            <figcaption><strong>Operações &amp; analytics</strong> · LLM destilado para suporte técnico offline</figcaption>
+          </figure>
+          <figure class="app-photo">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900&amp;q=80&amp;auto=format&amp;fit=crop"
+                 alt="Profissional de saúde usando tablet"
+                 loading="lazy" decoding="async"/>
+            <figcaption><strong>Saúde digital</strong> · transcrição clínica conforme LGPD</figcaption>
+          </figure>
+          <figure class="app-photo app-photo--wide">
+            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1200&amp;q=80&amp;auto=format&amp;fit=crop"
+                 alt="VANT sobrevoando paisagem"
+                 loading="lazy" decoding="async"/>
+            <figcaption><strong>Defesa &amp; logística</strong> · análise de borda em operação air-gapped</figcaption>
+          </figure>
         </div>
-
-        <p class="demos-disclaimer">
-          <strong>Aviso:</strong> os vídeos acima foram produzidos por terceiros sobre o hardware base do projeto.
-          Demonstrações próprias da <strong>Mangaba Edge AI rev B.2</strong> (rodando Llama 3.2, Phi-3.5, fluxos
-          industriais) serão publicadas após o DVT (Q3 2026) e disponibilizadas no data room a investidores e
-          clientes design-in sob NDA.
-        </p>
       </div>
     </section>
 
