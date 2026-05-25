@@ -53,10 +53,10 @@
 
       <nav class="nav__links" aria-label="Navegação principal">
         <a href="#mercado">Mercado</a>
-        <a href="#especificacoes">Especificações</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#demos">Demos</a>
         <a href="#comparativo">Comparativo</a>
         <a href="#roadmap">Roadmap</a>
-        <a href="#time">Time</a>
         <a href="#investimento">Investimento</a>
       </nav>
 
@@ -390,6 +390,200 @@
       </div>
     </section>
 
+    <!-- GALERIA -->
+    <section id="galeria" class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Galeria do produto</span>
+          <h2>A placa em <span class="accent">cinco perspectivas.</span></h2>
+          <p class="lead">
+            Renders conceituais da Mangaba Edge AI rev B.2. Fotos das amostras EVT-2 reais ficam disponíveis
+            no data room sob NDA — entregamos kit fotográfico de 4K + STEP + relatório dimensional ao
+            cliente design-in.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-card">
+            <div class="gallery-card__media gallery-card__media--pcb">
+              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vista superior da PCB">
+                <defs>
+                  <linearGradient id="g1-board" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1F4D2C"/><stop offset="100%" stop-color="#0E2C18"/></linearGradient>
+                </defs>
+                <rect x="20" y="20" width="280" height="160" rx="8" fill="url(#g1-board)" stroke="#A4CE6E" stroke-width="0.5" opacity="0.95"/>
+                <text x="30" y="38" font-family="JetBrains Mono, monospace" font-size="7" fill="#E8E2D6" opacity="0.7">MANGABA · EDGE-AI · REV B.2</text>
+                <!-- SoC -->
+                <rect x="130" y="70" width="60" height="60" rx="3" fill="#262421" stroke="#D97757" stroke-width="0.8"/>
+                <text x="160" y="100" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#FAF7F0" font-weight="600">RK3588S2</text>
+                <text x="160" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5.5" fill="#D97757">6 TOPS · 8-core</text>
+                <!-- RAM modules -->
+                <rect x="50" y="70" width="60" height="22" rx="2" fill="#2C2622"/><text x="80" y="84" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5.5" fill="#E8E2D6">LPDDR5 4GB</text>
+                <rect x="50" y="108" width="60" height="22" rx="2" fill="#2C2622"/><text x="80" y="122" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5.5" fill="#E8E2D6">LPDDR5 4GB</text>
+                <rect x="210" y="70" width="60" height="22" rx="2" fill="#2C2622"/><text x="240" y="84" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5.5" fill="#E8E2D6">LPDDR5 4GB</text>
+                <rect x="210" y="108" width="60" height="22" rx="2" fill="#2C2622"/><text x="240" y="122" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5.5" fill="#E8E2D6">LPDDR5 4GB</text>
+                <!-- M.2 slot -->
+                <rect x="50" y="148" width="160" height="22" rx="1.5" fill="#0E1A12" stroke="#3A3633" stroke-width="0.5"/>
+                <text x="130" y="162" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#A4CE6E">M.2 2280 · Hailo-8L / NVMe</text>
+                <!-- conectores topo -->
+                <g fill="#7A4A2A"><rect x="30" y="42" width="20" height="14" rx="1"/><rect x="54" y="42" width="20" height="14" rx="1"/><rect x="78" y="42" width="28" height="14" rx="1"/></g>
+                <g fill="#7A4A2A"><rect x="220" y="42" width="20" height="14" rx="1"/><rect x="244" y="42" width="20" height="14" rx="1"/><rect x="268" y="42" width="20" height="14" rx="1"/></g>
+                <!-- LEDs -->
+                <circle cx="27" cy="50" r="1.5" fill="#A4CE6E"/>
+                <text x="160" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#E8E2D6" opacity="0.6">85 × 55 mm · 8L FR-4 ENIG</text>
+              </svg>
+            </div>
+            <div class="gallery-card__body">
+              <h3 class="gallery-card__title">Vista superior · rev B.2</h3>
+              <p class="gallery-card__desc">Layout final da face superior com SoC central, 4 pacotes LPDDR5 em estrela e slot M.2 para acelerador.</p>
+              <p class="gallery-card__caption">render conceitual</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-card__media gallery-card__media--pcb">
+              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vista isométrica com heatsink">
+                <defs>
+                  <linearGradient id="g2-board" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1F4D2C"/><stop offset="100%" stop-color="#0A1F10"/></linearGradient>
+                  <linearGradient id="g2-heat" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9DA3A8"/><stop offset="100%" stop-color="#4A5055"/></linearGradient>
+                </defs>
+                <ellipse cx="160" cy="178" rx="120" ry="6" fill="#000" opacity="0.25"/>
+                <g transform="translate(30,40) skewX(-12)">
+                  <rect x="0" y="0" width="260" height="130" rx="6" fill="url(#g2-board)"/>
+                  <text x="10" y="14" font-family="JetBrains Mono, monospace" font-size="5" fill="#E8E2D6" opacity="0.6">EDGE-AI · REV B.2</text>
+                  <!-- Heatsink fins -->
+                  <g fill="url(#g2-heat)">
+                    <rect x="90" y="30" width="80" height="60" rx="2"/>
+                    <g stroke="#2A2E32" stroke-width="0.6">
+                      <line x1="92" y1="35" x2="168" y2="35"/><line x1="92" y1="42" x2="168" y2="42"/>
+                      <line x1="92" y1="49" x2="168" y2="49"/><line x1="92" y1="56" x2="168" y2="56"/>
+                      <line x1="92" y1="63" x2="168" y2="63"/><line x1="92" y1="70" x2="168" y2="70"/>
+                      <line x1="92" y1="77" x2="168" y2="77"/><line x1="92" y1="84" x2="168" y2="84"/>
+                    </g>
+                  </g>
+                  <text x="130" y="105" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5" fill="#A4CE6E">Heatsink 25×25×8 mm</text>
+                  <!-- M.2 protrusion -->
+                  <rect x="30" y="100" width="120" height="14" rx="1" fill="#0E1A12"/>
+                  <text x="90" y="110" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="4.5" fill="#A4CE6E">M.2 + Hailo-8L</text>
+                </g>
+              </svg>
+            </div>
+            <div class="gallery-card__body">
+              <h3 class="gallery-card__title">Isométrica com heatsink</h3>
+              <p class="gallery-card__desc">Dissipador passivo 25 × 25 × 8 mm sobre o SoC sustenta 12 W contínuos sem throttling em ambiente 24 °C.</p>
+              <p class="gallery-card__caption">render conceitual</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-card__media gallery-card__media--alt">
+              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Painel de I/O da placa">
+                <defs><linearGradient id="g3-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3A2920"/><stop offset="100%" stop-color="#1A0F08"/></linearGradient></defs>
+                <rect x="20" y="60" width="280" height="60" rx="4" fill="url(#g3-bg)" stroke="#7A4A2A" stroke-width="0.6"/>
+                <!-- I/O connectors -->
+                <rect x="34" y="74" width="32" height="32" rx="2" fill="#D97757"/><text x="50" y="93" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#FAF7F0">USB-C</text>
+                <rect x="74" y="74" width="22" height="32" rx="2" fill="#262421"/><text x="85" y="93" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#E8E2D6">HDMI</text>
+                <rect x="104" y="74" width="28" height="32" rx="2" fill="#262421"/><text x="118" y="93" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#E8E2D6">GbE</text>
+                <rect x="140" y="74" width="28" height="32" rx="2" fill="#262421"/><text x="154" y="93" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#E8E2D6">USB 3</text>
+                <rect x="176" y="74" width="28" height="32" rx="2" fill="#262421"/><text x="190" y="93" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#E8E2D6">USB 3</text>
+                <rect x="212" y="78" width="60" height="24" rx="2" fill="#7A4A2A"/><text x="242" y="93" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5" fill="#FAF7F0">GPIO 40-pin</text>
+                <!-- caption -->
+                <text x="160" y="148" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6.5" fill="#A4CE6E">Painel I/O lateral · classe industrial</text>
+              </svg>
+            </div>
+            <div class="gallery-card__body">
+              <h3 class="gallery-card__title">Painel de I/O</h3>
+              <p class="gallery-card__desc">USB-C PD, HDMI 2.1, GbE, 2× USB 3, GPIO 40-pin. Conectores grade industrial para uso 24/7 em painel de máquina.</p>
+              <p class="gallery-card__caption">render conceitual</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-card__media gallery-card__media--alt">
+              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Escala vs cartão de crédito">
+                <defs><linearGradient id="g4-card" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#D87555"/><stop offset="100%" stop-color="#A24E30"/></linearGradient></defs>
+                <!-- credit card 85.6 x 53.98 - reference -->
+                <rect x="50" y="50" width="220" height="138" rx="10" fill="url(#g4-card)" opacity="0.9"/>
+                <text x="65" y="70" font-family="Inter, sans-serif" font-size="9" fill="#FAF7F0" opacity="0.8" font-weight="600">CARTÃO DE CRÉDITO PADRÃO</text>
+                <text x="65" y="180" font-family="JetBrains Mono, monospace" font-size="6" fill="#FAF7F0" opacity="0.8">85,60 × 53,98 mm</text>
+                <!-- PCB overlay slightly smaller -->
+                <rect x="65" y="80" width="218" height="100" rx="6" fill="#0E2C18" stroke="#A4CE6E" stroke-width="0.8" opacity="0.92"/>
+                <text x="80" y="98" font-family="JetBrains Mono, monospace" font-size="6" fill="#A4CE6E">MANGABA EDGE AI · 85 × 55 mm</text>
+                <rect x="155" y="115" width="55" height="40" rx="2" fill="#262421" stroke="#D97757" stroke-width="0.6"/>
+                <text x="183" y="139" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="6" fill="#FAF7F0">RK3588</text>
+              </svg>
+            </div>
+            <div class="gallery-card__body">
+              <h3 class="gallery-card__title">Escala · cartão de crédito</h3>
+              <p class="gallery-card__desc">Footprint 85 × 55 mm cabe na mão. Mesmo perímetro de um cartão padrão ISO/IEC 7810, com 12 mm de altura total.</p>
+              <p class="gallery-card__caption">comparativo dimensional</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-card__media">
+              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stackup de 8 camadas">
+                <g font-family="JetBrains Mono, monospace" font-size="8" fill="#FAF7F0">
+                  <rect x="40" y="30" width="240" height="14" fill="#D97757"/><text x="290" y="40">L1 · sig 1 oz</text>
+                  <rect x="40" y="46" width="240" height="6" fill="#FAF7F0" opacity="0.15"/><text x="290" y="52" font-size="6">prepreg</text>
+                  <rect x="40" y="54" width="240" height="14" fill="#6B9540"/><text x="290" y="64">L2 · GND</text>
+                  <rect x="40" y="70" width="240" height="6" fill="#FAF7F0" opacity="0.15"/>
+                  <rect x="40" y="78" width="240" height="14" fill="#C56A4F"/><text x="290" y="88">L3 · sig 2 / PWR</text>
+                  <rect x="40" y="94" width="240" height="6" fill="#FAF7F0" opacity="0.15"/>
+                  <rect x="40" y="102" width="240" height="14" fill="#6B9540"/><text x="290" y="112">L4 · GND</text>
+                  <rect x="40" y="118" width="240" height="6" fill="#FAF7F0" opacity="0.15"/>
+                  <rect x="40" y="126" width="240" height="14" fill="#6B9540"/><text x="290" y="136">L5 · GND</text>
+                  <rect x="40" y="142" width="240" height="6" fill="#FAF7F0" opacity="0.15"/>
+                  <rect x="40" y="150" width="240" height="14" fill="#C56A4F"/><text x="290" y="160">L6 · sig 3 / PWR</text>
+                  <rect x="40" y="166" width="240" height="6" fill="#FAF7F0" opacity="0.15"/>
+                  <rect x="40" y="174" width="240" height="14" fill="#D97757"/><text x="290" y="184">L8 · sig 4</text>
+                </g>
+              </svg>
+            </div>
+            <div class="gallery-card__body">
+              <h3 class="gallery-card__title">Stackup HDI 3+N+3</h3>
+              <p class="gallery-card__desc">8 camadas FR-4 Tg170 · 4 planos de terra dedicados · sinal segregado por par diferencial conforme IPC-2226.</p>
+              <p class="gallery-card__caption">diagrama de camadas</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-card__media gallery-card__media--pcb">
+              <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de fluxo de inferência">
+                <g font-family="Inter, sans-serif" font-size="8">
+                  <rect x="20" y="76" width="60" height="48" rx="6" fill="#26211F" stroke="#7A4A2A"/>
+                  <text x="50" y="98" text-anchor="middle" fill="#FAF7F0" font-weight="600">Prompt</text>
+                  <text x="50" y="112" text-anchor="middle" fill="#A4CE6E" font-size="6">via SSH/REST</text>
+
+                  <rect x="110" y="60" width="100" height="80" rx="8" fill="#3A2920" stroke="#D97757" stroke-width="1.5"/>
+                  <text x="160" y="84" text-anchor="middle" fill="#FAF7F0" font-weight="700" font-size="10">RK3588S2</text>
+                  <text x="160" y="102" text-anchor="middle" fill="#D97757" font-size="6.5">8-core + NPU 6 TOPS</text>
+                  <line x1="115" y1="108" x2="205" y2="108" stroke="#7A4A2A" stroke-dasharray="2"/>
+                  <text x="160" y="122" text-anchor="middle" fill="#A4CE6E" font-size="6.5">+ Hailo-8L · 13 TOPS</text>
+
+                  <rect x="240" y="76" width="60" height="48" rx="6" fill="#26211F" stroke="#7A4A2A"/>
+                  <text x="270" y="98" text-anchor="middle" fill="#FAF7F0" font-weight="600">Resposta</text>
+                  <text x="270" y="112" text-anchor="middle" fill="#A4CE6E" font-size="6">streaming tokens</text>
+
+                  <line x1="80" y1="100" x2="110" y2="100" stroke="#D97757" stroke-width="1.2" marker-end="url(#arrow-g6)"/>
+                  <line x1="210" y1="100" x2="240" y2="100" stroke="#D97757" stroke-width="1.2" marker-end="url(#arrow-g6)"/>
+                </g>
+                <defs>
+                  <marker id="arrow-g6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M0 0 L10 5 L0 10 z" fill="#D97757"/>
+                  </marker>
+                </defs>
+              </svg>
+            </div>
+            <div class="gallery-card__body">
+              <h3 class="gallery-card__title">Fluxo de inferência</h3>
+              <p class="gallery-card__desc">Prompt → tokenização → CPU+NPU → streaming de resposta. Latência típica &lt; 200 ms para o primeiro token em modelos 1–3 B.</p>
+              <p class="gallery-card__caption">diagrama lógico</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- MODELOS -->
     <section id="modelos" class="section section--alt">
       <div class="container">
@@ -486,6 +680,81 @@
       </div>
     </section>
 
+    <!-- DEMOS AO VIVO -->
+    <section id="demos" class="section">
+      <div class="container">
+        <div class="section__head">
+          <span class="eyebrow">Demos ao vivo</span>
+          <h2>O <em>hardware base</em> rodando <span class="accent">de verdade.</span></h2>
+          <p class="lead">
+            Três demonstrações públicas em vídeo do silício e do acelerador que compõem a Mangaba Edge AI —
+            RK3588 com NPU e Hailo-8L em produção. Vídeos publicados por canais terceiros independentes;
+            usados aqui como prova de viabilidade técnica.
+          </p>
+        </div>
+
+        <div class="demos-grid">
+          <article class="demo-card">
+            <div class="demo-card__video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/J-ztitWPw6g?rel=0&modestbranding=1"
+                title="Running llama.cpp GGUF model with Rockchip RK3588 NPU"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="demo-card__body">
+              <h3 class="demo-card__title">LLM no NPU do RK3588</h3>
+              <p class="demo-card__what">Demonstração de inferência GGUF rodando direto na NPU do Rockchip RK3588 via llama.cpp — exatamente o SoC da nossa placa.</p>
+              <p class="demo-card__credit">Nov 2025 · <a href="https://www.youtube.com/watch?v=J-ztitWPw6g" target="_blank" rel="noopener">canal de origem ↗</a></p>
+            </div>
+          </article>
+
+          <article class="demo-card">
+            <div class="demo-card__video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/xiHv7xd1drY?rel=0&modestbranding=1"
+                title="Hailo 8L M.2 · Object detection edge"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="demo-card__body">
+              <h3 class="demo-card__title">Hailo-8L · visão na borda</h3>
+              <p class="demo-card__what">Acelerador Hailo-8L M.2 (o mesmo que conecta no slot da Mangaba Edge AI) executando detecção de objetos em tempo real.</p>
+              <p class="demo-card__credit">Ago 2025 · <a href="https://www.youtube.com/watch?v=xiHv7xd1drY" target="_blank" rel="noopener">canal de origem ↗</a></p>
+            </div>
+          </article>
+
+          <article class="demo-card">
+            <div class="demo-card__video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/s_WaqyemlZA?rel=0&modestbranding=1"
+                title="Standalone AI on Orange Pi 5 Plus (RK3588)"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="demo-card__body">
+              <h3 class="demo-card__title">IA standalone em RK3588</h3>
+              <p class="demo-card__what">Aplicação real de visão computacional 100 % offline em um Orange Pi 5 Plus (mesmo SoC) — sem nuvem, sem internet, sem dependência externa.</p>
+              <p class="demo-card__credit">Jul 2025 · <a href="https://www.youtube.com/watch?v=s_WaqyemlZA" target="_blank" rel="noopener">canal de origem ↗</a></p>
+            </div>
+          </article>
+        </div>
+
+        <p class="demos-disclaimer">
+          <strong>Aviso:</strong> os vídeos acima foram produzidos por terceiros sobre o hardware base do projeto.
+          Demonstrações próprias da <strong>Mangaba Edge AI rev B.2</strong> (rodando Llama 3.2, Phi-3.5, fluxos
+          industriais) serão publicadas após o DVT (Q3 2026) e disponibilizadas no data room a investidores e
+          clientes design-in sob NDA.
+        </p>
+      </div>
+    </section>
+
     <!-- CASOS DE USO -->
     <section id="casos" class="section">
       <div class="container">
@@ -500,36 +769,42 @@
 
         <div class="usecase-grid">
           <article class="card usecase">
+            <div class="usecase__photo" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&amp;q=80&amp;auto=format&amp;fit=crop')" role="img" aria-label="Plantação ao pôr do sol"></div>
             <span class="usecase__icon" aria-hidden="true">🌾</span>
             <h3>Agro · visão computacional</h3>
             <p>Pulverizadores inteligentes identificam erva daninha em campo sem conexão. Modelos de detecção + Llama 3.2 para relatórios offline.</p>
             <span class="usecase__tag">Prospects · cooperativas</span>
           </article>
           <article class="card usecase">
+            <div class="usecase__photo" style="background-image:url('https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=900&amp;q=80&amp;auto=format&amp;fit=crop')" role="img" aria-label="Chão de fábrica industrial"></div>
             <span class="usecase__icon" aria-hidden="true">🏭</span>
             <h3>Indústria 4.0 · QA visual</h3>
             <p>Inspeção de defeitos em linha de produção com Whisper (voz do operador) + visão. Latência on-prem &lt; 100 ms.</p>
             <span class="usecase__tag">Prospects · integradoras BR</span>
           </article>
           <article class="card usecase">
+            <div class="usecase__photo" style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&amp;q=80&amp;auto=format&amp;fit=crop')" role="img" aria-label="Equipamento médico em clínica moderna"></div>
             <span class="usecase__icon" aria-hidden="true">🏥</span>
             <h3>Saúde · triagem on-prem</h3>
             <p>LLM destilado roda no posto de saúde com dados sob LGPD. Phi-3.5 Mini gera anotação clínica a partir da fala.</p>
             <span class="usecase__tag">Prospects · clínicas BR</span>
           </article>
           <article class="card usecase">
+            <div class="usecase__photo" style="background-image:url('https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=900&amp;q=80&amp;auto=format&amp;fit=crop')" role="img" aria-label="Terminal de varejo / self-checkout"></div>
             <span class="usecase__icon" aria-hidden="true">🛒</span>
             <h3>Varejo · self-checkout</h3>
             <p>Reconhecimento de produto em quiosques sem nuvem. Custo de inferência marginal próximo de zero após o CapEx.</p>
             <span class="usecase__tag">Em prospecção</span>
           </article>
           <article class="card usecase">
+            <div class="usecase__photo" style="background-image:url('https://images.unsplash.com/photo-1508444845599-5c89863b1c44?w=900&amp;q=80&amp;auto=format&amp;fit=crop')" role="img" aria-label="VANT em operação"></div>
             <span class="usecase__icon" aria-hidden="true">🛡️</span>
             <h3>Defesa · análise de borda</h3>
             <p>Plataforma para uso em VANTs e bases avançadas. Operação air-gapped, BSP customizável sob contrato.</p>
             <span class="usecase__tag">Discussões sob NDA</span>
           </article>
           <article class="card usecase">
+            <div class="usecase__photo" style="background-image:url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=900&amp;q=80&amp;auto=format&amp;fit=crop')" role="img" aria-label="Sala de aula com livros"></div>
             <span class="usecase__icon" aria-hidden="true">🎓</span>
             <h3>Educação · tutor offline</h3>
             <p>Llama 3.2 1B atende alunos em escolas sem internet estável. CapEx único vs. assinatura SaaS recorrente.</p>
