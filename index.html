@@ -33,28 +33,27 @@
       <a class="brand" href="#top" aria-label="mangaba.edge — início">
         <svg class="brand__logo" width="36" height="36" viewBox="0 0 64 64" aria-hidden="true">
           <defs>
-            <radialGradient id="mng-fruit" cx="40%" cy="34%" r="68%">
-              <stop offset="0%"  stop-color="#FFE085"/>
-              <stop offset="55%" stop-color="#F5B342"/>
-              <stop offset="100%" stop-color="#E07A3E"/>
-            </radialGradient>
-            <linearGradient id="mng-leaf" x1="0" y1="100%" x2="100%" y2="0">
-              <stop offset="0%"  stop-color="#7AAD3A"/>
-              <stop offset="100%" stop-color="#A8CD6B"/>
+            <linearGradient id="mng-fruit" x1="0.05" y1="0.3" x2="0.95" y2="0.7">
+              <stop offset="0%"   stop-color="#FFD55C"/>
+              <stop offset="35%"  stop-color="#FFB833"/>
+              <stop offset="65%"  stop-color="#FA8228"/>
+              <stop offset="100%" stop-color="#E76318"/>
+            </linearGradient>
+            <linearGradient id="mng-leaf" x1="0.2" y1="1" x2="0.85" y2="0">
+              <stop offset="0%"   stop-color="#3A8A3A"/>
+              <stop offset="100%" stop-color="#5FB350"/>
             </linearGradient>
           </defs>
-          <!-- Folha (curvada · top-left da fruta) -->
-          <path d="M 32 16 C 24 8, 12 10, 14 18 C 16 24, 26 23, 33 18 Z" fill="url(#mng-leaf)"/>
-          <!-- Nervura -->
-          <path d="M 16 16 Q 24 16, 31 18" stroke="#5A8235" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.85"/>
-          <!-- Pedúnculo -->
-          <rect x="30.5" y="12" width="2.5" height="6" rx="1" fill="#5C3A24"/>
-          <!-- Fruto -->
-          <circle cx="32" cy="40" r="22" fill="url(#mng-fruit)"/>
-          <!-- Blush peach lateral inferior direita -->
-          <ellipse cx="42" cy="48" rx="10" ry="8" fill="#FF9966" opacity="0.32" transform="rotate(18 42 48)"/>
+          <!-- Talo verde-marrom -->
+          <path d="M 30 17 Q 30 13 28 10" stroke="#3D6A2A" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <!-- Folha (top-left, curvada) -->
+          <path d="M 26 13 C 16 6, 8 11, 11 18 C 15 24, 25 21, 30 14 Z" fill="url(#mng-leaf)"/>
+          <!-- Nervura central -->
+          <path d="M 12 16 Q 21 16, 28 14" stroke="#2D6E2D" stroke-width="0.9" fill="none" stroke-linecap="round" opacity="0.7"/>
+          <!-- Corpo da fruta (oval, levemente alongada) -->
+          <ellipse cx="32" cy="40" rx="22" ry="21" fill="url(#mng-fruit)"/>
           <!-- Brilho superior esquerdo -->
-          <ellipse cx="24" cy="30" rx="7" ry="4" fill="#FFFFFF" opacity="0.42" transform="rotate(-22 24 30)"/>
+          <ellipse cx="22" cy="30" rx="7" ry="4.5" fill="#FFFFFF" opacity="0.42" transform="rotate(-15 22 30)"/>
         </svg>
         <span class="brand__wordmark">
           <span class="brand__name">mangaba</span><span class="brand__product">.edge</span>

@@ -9,12 +9,13 @@
   --brand: #F47F2C;          /* mangaba orange — primário */
   --brand-hover: #D96C20;
   --brand-deep: #B85A1A;
-  --gold: #FBD972;           /* mangaba gold (fruta) */
-  --gold-soft: #FFE9A8;
-  --peach: #FFB789;          /* blush peach (lateral da fruta) */
-  --leaf: #7AAD3A;           /* folha verde fresca */
-  --leaf-soft: #A8CD6B;
-  --stem: #5C3A24;
+  --gold: #FFD55C;           /* mangaba yellow (left half da fruta) */
+  --gold-soft: #FFE38A;
+  --peach: #FFAA38;          /* zona de transição amarelo→laranja */
+  --leaf: #4FA84F;           /* folha verde saturada (referência logo) */
+  --leaf-soft: #6BBA50;
+  --leaf-deep: #3A8A3A;      /* vena/base da folha */
+  --stem: #3D6A2A;           /* talo verde-marrom */
 
   /* Light theme — cream gradient (default) */
   --bg: hsl(38, 60%, 96%);              /* #FCF7EB */
@@ -224,7 +225,7 @@ em { font-family: var(--font-serif); font-style: italic; }
 .eyebrow::before {
   content: "";
   width: 6px; height: 6px; border-radius: 50%;
-  background: linear-gradient(135deg, #F5B342, #F47F2C);
+  background: linear-gradient(135deg, #FFD55C, #FA8228);
   flex-shrink: 0;
 }
 .lead { font-size: 1.05rem; color: var(--fg-muted); max-width: 60ch; }
@@ -267,7 +268,7 @@ em { font-family: var(--font-serif); font-style: italic; }
 }
 .swatches > span { flex: 1; }
 .swatches > .sw-leaf  { background: linear-gradient(135deg, var(--leaf-soft), var(--leaf)); }
-.swatches > .sw-orange{ background: linear-gradient(135deg, #F5B342, #F47F2C); }
+.swatches > .sw-orange{ background: linear-gradient(120deg, #FFD55C 0%, #FA8228 70%, #E76318 100%); }
 .swatches > .sw-gold  { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); }
 
 /* =========== Pílulas flutuantes ao redor do PCB (estilo brand sheet) =========== */
@@ -290,12 +291,12 @@ em { font-family: var(--font-serif); font-style: italic; }
   width: 14px; height: 14px;
   display: inline-flex; align-items: center; justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, #F5B342, #F47F2C);
+  background: linear-gradient(135deg, #FFD55C, #FA8228);
   color: #fff; font-size: 9px; font-weight: 700;
   flex-shrink: 0;
 }
-.float-pill--leaf .float-pill__icon { background: linear-gradient(135deg, var(--leaf-soft), var(--leaf)); }
-.float-pill--gold .float-pill__icon { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); color: #5C3A24; }
+.float-pill--leaf .float-pill__icon { background: linear-gradient(135deg, #6BBA50, #3A8A3A); }
+.float-pill--gold .float-pill__icon { background: linear-gradient(135deg, #FFE38A, #FFD55C); color: #3D6A2A; }
 
 .board { position: relative; }
 .float-pill--tl { top: 10%; left: -2%; }
@@ -309,18 +310,18 @@ em { font-family: var(--font-serif); font-style: italic; }
   .float-pill { position: static; display: none; }
 }
 
-/* =========== Mango gradients · CTAs e text accents =========== */
+/* =========== Mango gradients · alinhados com a gradação amarelo→laranja da fruta =========== */
 .btn--primary {
-  background: linear-gradient(135deg, #F5B342 0%, #F47F2C 55%, #E76B1F 100%) !important;
+  background: linear-gradient(120deg, #FFD55C 0%, #FFB833 30%, #FA8228 65%, #E76318 100%) !important;
   border-color: transparent !important;
-  box-shadow: 0 4px 14px -4px rgba(184, 90, 26, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  box-shadow: 0 4px 14px -4px rgba(184, 90, 26, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 .btn--primary:hover {
-  background: linear-gradient(135deg, #F8BE52 0%, #FF8D38 55%, #D96320 100%) !important;
-  box-shadow: 0 6px 18px -4px rgba(184, 90, 26, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  background: linear-gradient(120deg, #FFE38A 0%, #FFC03A 30%, #FF8D38 65%, #D96320 100%) !important;
+  box-shadow: 0 6px 18px -4px rgba(184, 90, 26, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.32);
 }
 .accent {
-  background: linear-gradient(135deg, #F5B342 0%, #F47F2C 100%);
+  background: linear-gradient(110deg, #FFB833 0%, #FA8228 60%, #E76318 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -350,11 +351,11 @@ em { font-family: var(--font-serif); font-style: italic; }
 }
 .hero-pill__dot {
   width: 6px; height: 6px; border-radius: 50%;
-  background: linear-gradient(135deg, #F5B342, #F47F2C);
+  background: linear-gradient(135deg, #FFD55C, #FA8228);
   flex-shrink: 0;
 }
-.hero-pill--leaf .hero-pill__dot { background: linear-gradient(135deg, #A8CD6B, #7AAD3A); }
-.hero-pill--gold .hero-pill__dot { background: linear-gradient(135deg, #FFE9A8, #FBD972); }
+.hero-pill--leaf .hero-pill__dot { background: linear-gradient(135deg, #6BBA50, #3A8A3A); }
+.hero-pill--gold .hero-pill__dot { background: linear-gradient(135deg, #FFE38A, #FFD55C); }
 
 /* =========== Sombras quentes refinadas =========== */
 .card {
@@ -840,7 +841,7 @@ tbody td .muted { font-size: .82rem; margin-left: .25rem; }
 .step__num {
   font: 700 2rem/1 var(--font-sans);
   letter-spacing: -.02em;
-  background: linear-gradient(135deg, #F5B342, #F47F2C);
+  background: linear-gradient(120deg, #FFB833 0%, #FA8228 60%, #E76318 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
