@@ -6,30 +6,30 @@
 
 :root {
   /* === Brand · mangaba.ai · 2026 === */
-  --brand: #E94A12;          /* mangaba orange — primário */
-  --brand-hover: #C73D0E;
-  --brand-deep: #A83208;
+  --brand: #F97518;          /* mangaba orange — primário */
+  --brand-hover: #C25B11;
+  --brand-deep: #C25B11;
   --gold: #FFD83D;           /* mangaba yellow (left half da fruta) */
   --gold-soft: #FFE57A;
-  --peach: #FF7A1A;          /* zona de transição amarelo→laranja */
+  --peach: #FF9C24;          /* zona de transição amarelo→laranja */
   --leaf: #7BBF26;           /* folha verde saturada (referência logo) */
   --leaf-soft: #7BBF26;
   --leaf-deep: #689924;      /* vena/base da folha */
   --stem: #689924;           /* talo verde-marrom */
 
   /* Light theme — cream gradient (default, paleta oficial) */
-  --bg: #FFFCF0;
+  --bg: #FFF8F5;
   --bg-elev: #FFFFFF;
   --bg-alt: #FFF3E2;                    /* warm cream */
-  --bg-grad: linear-gradient(180deg, #FFFCF0 0%, #FFDFCC 100%);
-  --fg: #403731;                        /* marrom escuro oficial */
+  --bg-grad: linear-gradient(180deg, #FFF8F5 0%, #FFDAC2 100%);
+  --fg: #1E0D01;                        /* marrom escuro oficial */
   --fg-muted: #6E5F54;
   --border: hsl(34, 35%, 86%);
   --border-strong: hsl(34, 28%, 76%);
   --card: #FFFFFF;
   --card-warm: #FFF6E8;
-  --shadow-sm: 0 1px 2px rgba(233, 74, 18, 0.06);
-  --shadow-md: 0 8px 28px -6px rgba(233, 74, 18, 0.12), 0 2px 6px rgba(64, 55, 49, 0.04);
+  --shadow-sm: 0 1px 2px rgba(249, 117, 24, 0.06);
+  --shadow-md: 0 8px 28px -6px rgba(249, 117, 24, 0.12), 0 2px 6px rgba(64, 55, 49, 0.04);
 
   /* Status */
   --ok: var(--leaf);
@@ -229,7 +229,7 @@ em { font-family: var(--font-serif); font-style: italic; }
 .eyebrow::before {
   content: "";
   width: 6px; height: 6px; border-radius: 50%;
-  background: linear-gradient(135deg, #FFD83D, #FF7A1A);
+  background: linear-gradient(135deg, #FFD83D, #FF9C24);
   flex-shrink: 0;
 }
 .lead { font-size: 1.05rem; color: var(--fg-muted); max-width: 60ch; }
@@ -272,7 +272,7 @@ em { font-family: var(--font-serif); font-style: italic; }
 }
 .swatches > span { flex: 1; }
 .swatches > .sw-leaf  { background: linear-gradient(135deg, var(--leaf-soft), var(--leaf)); }
-.swatches > .sw-orange{ background: linear-gradient(120deg, #FFD83D 0%, #FF7A1A 70%, #E94A12 100%); }
+.swatches > .sw-orange{ background: linear-gradient(120deg, #FFD83D 0%, #FF9C24 70%, #F97518 100%); }
 .swatches > .sw-gold  { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); }
 
 /* =========== Pílulas flutuantes ao redor do PCB (estilo brand sheet) =========== */
@@ -295,7 +295,7 @@ em { font-family: var(--font-serif); font-style: italic; }
   width: 14px; height: 14px;
   display: inline-flex; align-items: center; justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FFD83D, #FF7A1A);
+  background: linear-gradient(135deg, #FFD83D, #FF9C24);
   color: #fff; font-size: 9px; font-weight: 700;
   flex-shrink: 0;
 }
@@ -316,7 +316,7 @@ em { font-family: var(--font-serif); font-style: italic; }
 
 /* =========== Mango gradients · alinhados com a gradação amarelo→laranja da fruta =========== */
 .btn--primary {
-  background: linear-gradient(120deg, #FFD83D 0%, #FF9A2A 30%, #FF7A1A 65%, #E94A12 100%) !important;
+  background: linear-gradient(120deg, #FFD83D 0%, #FF9A2A 30%, #FF9C24 65%, #F97518 100%) !important;
   border-color: transparent !important;
   box-shadow: 0 4px 14px -4px rgba(184, 90, 26, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
@@ -325,7 +325,7 @@ em { font-family: var(--font-serif); font-style: italic; }
   box-shadow: 0 6px 18px -4px rgba(184, 90, 26, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.32);
 }
 .accent {
-  background: linear-gradient(110deg, #FF9A2A 0%, #FF7A1A 60%, #E94A12 100%);
+  background: linear-gradient(110deg, #FF9A2A 0%, #FF9C24 60%, #F97518 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -355,7 +355,7 @@ em { font-family: var(--font-serif); font-style: italic; }
 }
 .hero-pill__dot {
   width: 6px; height: 6px; border-radius: 50%;
-  background: linear-gradient(135deg, #FFD83D, #FF7A1A);
+  background: linear-gradient(135deg, #FFD83D, #FF9C24);
   flex-shrink: 0;
 }
 .hero-pill--leaf .hero-pill__dot { background: linear-gradient(135deg, #7BBF26, #689924); }
@@ -845,7 +845,7 @@ tbody td .muted { font-size: .82rem; margin-left: .25rem; }
 .step__num {
   font: 700 2rem/1 var(--font-sans);
   letter-spacing: -.02em;
-  background: linear-gradient(120deg, #FF9A2A 0%, #FF7A1A 60%, #E94A12 100%);
+  background: linear-gradient(120deg, #FF9A2A 0%, #FF9C24 60%, #F97518 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
