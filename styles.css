@@ -6,30 +6,30 @@
 
 :root {
   /* === Brand · mangaba.ai · 2026 === */
-  --brand: #F47F2C;          /* mangaba orange — primário */
-  --brand-hover: #D96C20;
-  --brand-deep: #B85A1A;
-  --gold: #FFD55C;           /* mangaba yellow (left half da fruta) */
-  --gold-soft: #FFE38A;
-  --peach: #FFAA38;          /* zona de transição amarelo→laranja */
-  --leaf: #4FA84F;           /* folha verde saturada (referência logo) */
-  --leaf-soft: #6BBA50;
-  --leaf-deep: #3A8A3A;      /* vena/base da folha */
-  --stem: #3D6A2A;           /* talo verde-marrom */
+  --brand: #E94A12;          /* mangaba orange — primário */
+  --brand-hover: #C73D0E;
+  --brand-deep: #A83208;
+  --gold: #FFD83D;           /* mangaba yellow (left half da fruta) */
+  --gold-soft: #FFE57A;
+  --peach: #FF7A1A;          /* zona de transição amarelo→laranja */
+  --leaf: #7BBF26;           /* folha verde saturada (referência logo) */
+  --leaf-soft: #7BBF26;
+  --leaf-deep: #689924;      /* vena/base da folha */
+  --stem: #689924;           /* talo verde-marrom */
 
-  /* Light theme — cream gradient (default) */
-  --bg: hsl(38, 60%, 96%);              /* #FCF7EB */
+  /* Light theme — cream gradient (default, paleta oficial) */
+  --bg: #FFFCF0;
   --bg-elev: #FFFFFF;
-  --bg-alt: hsl(34, 65%, 94%);          /* warm cream */
-  --bg-grad: linear-gradient(180deg, #FCF7EB 0%, #FDEFE2 100%);
-  --fg: hsl(28, 22%, 14%);              /* #2D2620 */
-  --fg-muted: hsl(28, 12%, 40%);
+  --bg-alt: #FFF3E2;                    /* warm cream */
+  --bg-grad: linear-gradient(180deg, #FFFCF0 0%, #FFDFCC 100%);
+  --fg: #403731;                        /* marrom escuro oficial */
+  --fg-muted: #6E5F54;
   --border: hsl(34, 35%, 86%);
   --border-strong: hsl(34, 28%, 76%);
   --card: #FFFFFF;
-  --card-warm: #FCF6E5;
-  --shadow-sm: 0 1px 2px rgba(184, 90, 26, 0.06);
-  --shadow-md: 0 8px 28px -6px rgba(184, 90, 26, 0.12), 0 2px 6px rgba(45, 38, 32, 0.04);
+  --card-warm: #FFF6E8;
+  --shadow-sm: 0 1px 2px rgba(233, 74, 18, 0.06);
+  --shadow-md: 0 8px 28px -6px rgba(233, 74, 18, 0.12), 0 2px 6px rgba(64, 55, 49, 0.04);
 
   /* Status */
   --ok: var(--leaf);
@@ -147,6 +147,10 @@ em { font-family: var(--font-serif); font-style: italic; }
   display: inline-flex; align-items: center; gap: .6rem;
   color: var(--fg);
 }
+.brand__logo {
+  height: 48px; width: auto;
+  border-radius: 8px;
+}
 .brand__wordmark {
   display: inline-flex; align-items: baseline;
   font-family: var(--font-sans);
@@ -225,7 +229,7 @@ em { font-family: var(--font-serif); font-style: italic; }
 .eyebrow::before {
   content: "";
   width: 6px; height: 6px; border-radius: 50%;
-  background: linear-gradient(135deg, #FFD55C, #FA8228);
+  background: linear-gradient(135deg, #FFD83D, #FF7A1A);
   flex-shrink: 0;
 }
 .lead { font-size: 1.05rem; color: var(--fg-muted); max-width: 60ch; }
@@ -268,7 +272,7 @@ em { font-family: var(--font-serif); font-style: italic; }
 }
 .swatches > span { flex: 1; }
 .swatches > .sw-leaf  { background: linear-gradient(135deg, var(--leaf-soft), var(--leaf)); }
-.swatches > .sw-orange{ background: linear-gradient(120deg, #FFD55C 0%, #FA8228 70%, #E76318 100%); }
+.swatches > .sw-orange{ background: linear-gradient(120deg, #FFD83D 0%, #FF7A1A 70%, #E94A12 100%); }
 .swatches > .sw-gold  { background: linear-gradient(135deg, var(--gold-soft), var(--gold)); }
 
 /* =========== Pílulas flutuantes ao redor do PCB (estilo brand sheet) =========== */
@@ -291,12 +295,12 @@ em { font-family: var(--font-serif); font-style: italic; }
   width: 14px; height: 14px;
   display: inline-flex; align-items: center; justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FFD55C, #FA8228);
+  background: linear-gradient(135deg, #FFD83D, #FF7A1A);
   color: #fff; font-size: 9px; font-weight: 700;
   flex-shrink: 0;
 }
-.float-pill--leaf .float-pill__icon { background: linear-gradient(135deg, #6BBA50, #3A8A3A); }
-.float-pill--gold .float-pill__icon { background: linear-gradient(135deg, #FFE38A, #FFD55C); color: #3D6A2A; }
+.float-pill--leaf .float-pill__icon { background: linear-gradient(135deg, #7BBF26, #689924); }
+.float-pill--gold .float-pill__icon { background: linear-gradient(135deg, #FFE57A, #FFD83D); color: #689924; }
 
 .board { position: relative; }
 .float-pill--tl { top: 10%; left: -2%; }
@@ -312,16 +316,16 @@ em { font-family: var(--font-serif); font-style: italic; }
 
 /* =========== Mango gradients · alinhados com a gradação amarelo→laranja da fruta =========== */
 .btn--primary {
-  background: linear-gradient(120deg, #FFD55C 0%, #FFB833 30%, #FA8228 65%, #E76318 100%) !important;
+  background: linear-gradient(120deg, #FFD83D 0%, #FF9A2A 30%, #FF7A1A 65%, #E94A12 100%) !important;
   border-color: transparent !important;
   box-shadow: 0 4px 14px -4px rgba(184, 90, 26, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 .btn--primary:hover {
-  background: linear-gradient(120deg, #FFE38A 0%, #FFC03A 30%, #FF8D38 65%, #D96320 100%) !important;
+  background: linear-gradient(120deg, #FFE57A 0%, #FFC03A 30%, #FF8D38 65%, #D96320 100%) !important;
   box-shadow: 0 6px 18px -4px rgba(184, 90, 26, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.32);
 }
 .accent {
-  background: linear-gradient(110deg, #FFB833 0%, #FA8228 60%, #E76318 100%);
+  background: linear-gradient(110deg, #FF9A2A 0%, #FF7A1A 60%, #E94A12 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -351,11 +355,11 @@ em { font-family: var(--font-serif); font-style: italic; }
 }
 .hero-pill__dot {
   width: 6px; height: 6px; border-radius: 50%;
-  background: linear-gradient(135deg, #FFD55C, #FA8228);
+  background: linear-gradient(135deg, #FFD83D, #FF7A1A);
   flex-shrink: 0;
 }
-.hero-pill--leaf .hero-pill__dot { background: linear-gradient(135deg, #6BBA50, #3A8A3A); }
-.hero-pill--gold .hero-pill__dot { background: linear-gradient(135deg, #FFE38A, #FFD55C); }
+.hero-pill--leaf .hero-pill__dot { background: linear-gradient(135deg, #7BBF26, #689924); }
+.hero-pill--gold .hero-pill__dot { background: linear-gradient(135deg, #FFE57A, #FFD83D); }
 
 /* =========== Sombras quentes refinadas =========== */
 .card {
@@ -841,7 +845,7 @@ tbody td .muted { font-size: .82rem; margin-left: .25rem; }
 .step__num {
   font: 700 2rem/1 var(--font-sans);
   letter-spacing: -.02em;
-  background: linear-gradient(120deg, #FFB833 0%, #FA8228 60%, #E76318 100%);
+  background: linear-gradient(120deg, #FF9A2A 0%, #FF7A1A 60%, #E94A12 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
